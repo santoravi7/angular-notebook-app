@@ -1,0 +1,12 @@
+h4{
+  color: #1976d2;
+  font-family: lato;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+a, a:hover {
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+}

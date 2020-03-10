@@ -1,0 +1,57 @@
+/* Add application styles & imports to this file! */
+
+app-navbar{
+  height: 45px;
+  background : #fff;
+  box-shadow: 0px 1px 4px #999;
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  color: #1976d2;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none !important;
+  z-index: 999;
+}
+
+a, a:hover {
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.container{
+  padding: 0px;
+  min-height: 505px;
+  background : #f7f7f7;
+  width: 100%;
+}
+
+app-notebook{
+  height: 100%;
+  padding: 0px;
+  display: flex;
+  color: #1976d2;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none !important;
+}
+
+.notes-div{
+    margin-top: 20px;
+    background: #efefef;
+    min-height: 180px;    
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 12px !important;
+}
+
+.notes-div h4{
+  color: #fff;
+  font-family: lato;
+  font-size: 16px;
+
+}
