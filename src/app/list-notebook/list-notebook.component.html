@@ -1,11 +1,12 @@
 <div class="container" >
-  <div *ngIf="notebook" >
+  <div *ngIf="notebook">
     <div class="desc" *ngFor="let note of notebook.noteList;"> 
-      <div class="col-md-3 col-xs-4 col-sm-3 col-lg-2">
+      <div class="col-md-3 col-xs-6 col-sm-3 col-lg-2 p-15">
           <div class="notes-div" [ngStyle]="{'background-color': note.color}">
-            <h4>{{note.name}}</h4>          
+            <h4>{{note.name}}</h4>        
           </div>
       </div>
     </div>
   </div>
+
 </div>

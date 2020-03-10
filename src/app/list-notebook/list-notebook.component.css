@@ -1,0 +1,16 @@
+.notes-div{
+  width: 200px !important;
+  min-height: 200px !important; 
+}
+
+.p-15{
+  padding: 15px;
+}
+
+@media only screen and (max-width: 420px) {
+  .notes-div{
+    width: 125px !important;
+    min-height: 125px !important; 
+  }
+}
+
