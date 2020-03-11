@@ -12,6 +12,7 @@ import { NotebookService } from './notebook.service';
 import { MessageService } from './message.service';
 import { MessageComponent } from './message/message.component'; 
 import { FormsModule } from '@angular/forms';
+import { NoteService } from './note.service';
 
 
 @NgModule({
@@ -32,6 +33,6 @@ import { FormsModule } from '@angular/forms';
     MessageComponent 
   ],
   bootstrap:    [ AppComponent ],
-  providers: [InMemoryDataService,NotebookService, MessageService]
+  providers: [InMemoryDataService,NotebookService, MessageService, NoteService]
 })
 export class AppModule { }
