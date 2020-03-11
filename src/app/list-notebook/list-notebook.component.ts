@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
-import { notebookList } from '../notebookList';
+import { Location } from '@angular/common';
+import { NotebookData } from '../notebook-data';
+import { NotebookService } from '../notebook.service';
+import { Pipe } from '@angular/core';
 
 @Component({
   selector: 'app-list-notebook',
@@ -8,14 +11,34 @@ import { notebookList } from '../notebookList';
   styleUrls: ['./list-notebook.component.css']
 })
 export class ListNotebookComponent implements OnInit {
-  notebook;
+  notebook:NotebookData;
 
-  constructor(private route: ActivatedRoute,) { }
+  constructor(
+    private route: ActivatedRoute,
+    private notebookService: NotebookService,
+    private location: Location
+    ) { }
 
-  ngOnInit() {
-    this.route.paramMap.subscribe(params=>{
-      this.notebook = notebookList[+params.get('notebookId')]; 
-    })
+  ngOnInit(): void {
+    this.getNoteBook();
+  }
+  getNoteBook(): void {
+    
+    const id = +this.route.snapshot.paramMap.get('id');
+    console.log("this is getNoteBook notebook : "+id);
+    this.notebookService.getNoteBook(id)
+      .subscribe(
+        notebook => this.notebook = notebook
+      );
+      console.log("Inside the subscribe - getNoteBook id = "+this.notebook)      
+  }
+  
+  goBack() : void {
+    this.location.back();
   }
 
+  save(): void {
+    this.notebookService.updateNote(this.notebook)
+      .subscribe(() => this.goBack());
+  }
 }

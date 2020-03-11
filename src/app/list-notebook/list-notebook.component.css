@@ -14,3 +14,29 @@
   }
 }
 
+
+.todo-btn{
+    width: 50px;
+    height: 30px;
+    border: none;
+    background: none;
+    float: right;
+}
+
+.todo-btn img{
+  width: 60%;
+  background: #fff;
+  color: #fff;
+}
+
+.actions-div{
+  width: 200px;
+  position : absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.pull-right-div{
+  float: right;
+  width: 150px;
+}

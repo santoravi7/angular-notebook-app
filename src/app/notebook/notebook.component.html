@@ -1,13 +1,13 @@
 
 <div class="container">
     <div *ngFor="let notebook of notebooks; index as notebookId">
-      <a [title]="notebook.name+' details'" [routerLink]="['notebooks',notebookId]" >
-      <div class="col-md-2 col-xs-3 col-sm-2 col-lg-2 notebook-div">
-        <div class="notes-div" 
-        [style.background]="'url(' + notebook.img + ')'">   
+      <a [title]="notebook.name+' details'" routerLink="/detail/{{notebook.id}}"   >
+        <div class="col-md-2 col-xs-3 col-sm-2 col-lg-2 notebook-div">
+          <div id="container">
+            <div class="notesimg-div"[style.background]="'url(' + notebook.img + ')'"></div>
+          </div>       
+          <h4 class="nb-header">{{notebook.name}}</h4> 
         </div>
-        <h4 class="nb-header">{{notebook.name}}</h4> 
-      </div>
       </a>
     </div>
 </div>
