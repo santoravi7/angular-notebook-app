@@ -5,7 +5,6 @@ import { NotebookData } from '../notebook-data';
 import { NotebookService } from '../notebook.service';
 import { Pipe } from '@angular/core';
 import { Notedata } from '../notedata';
-import { NoteService } from '../note.service';
 
 @Component({
   selector: 'app-list-notebook',
@@ -18,7 +17,6 @@ export class ListNotebookComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private notebookService: NotebookService,
-    private noteService: NoteService,
     private location: Location
     ) { }
 
@@ -70,7 +68,7 @@ export class ListNotebookComponent implements OnInit {
   }
 
   save(): void {
-    this.notebookService.updateNote(this.notebook)
+    this.notebookService.updateNotebook(this.notebook)
       .subscribe(() => this.goBack());
   }
 
