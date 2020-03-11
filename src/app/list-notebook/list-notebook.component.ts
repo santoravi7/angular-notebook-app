@@ -23,7 +23,6 @@ export class ListNotebookComponent implements OnInit {
     this.getNoteBook();
   }
   getNoteBook(): void {
-    
     const id = +this.route.snapshot.paramMap.get('id');
     console.log("this is getNoteBook notebook : "+id);
     this.notebookService.getNoteBook(id)
@@ -31,6 +30,11 @@ export class ListNotebookComponent implements OnInit {
         notebook => this.notebook = notebook
       );
       console.log("Inside the subscribe - getNoteBook id = "+this.notebook)      
+  }
+
+  updateName(): void{
+    this.notebookService.updateNotebook(this.notebook)
+      .subscribe(() => this.goBack());
   }
   
   goBack() : void {

@@ -1,4 +1,6 @@
-
+<div>
+  <button (click)="addNotebook();" class="add-btn" title="Add Note">+</button>
+</div>
 <div class="container">
     <div *ngFor="let notebook of notebooks; index as notebookId">
       <a [title]="notebook.name+' details'" routerLink="/detail/{{notebook.id}}"   >

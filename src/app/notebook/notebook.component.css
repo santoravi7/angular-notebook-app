@@ -6,6 +6,23 @@
   font-weight: 700;
 }
 
+.add-btn{
+  border: none;
+  border-radius: 50%;
+  font-family: lato;
+  font-size: 28px;
+  padding: 3px 15px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  box-shadow: -1px 2px 12px 0px #848484;
+  background: #1976d2;
+  color: #ffffff;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
 .notesimg-div{
   margin-top: 20px; 
   padding: 15px 20px;

@@ -36,7 +36,19 @@ export class NotebookService {
     );
   }
 
+  addNotebook (notebook: NotebookData): Observable<NotebookData> {
+    return this.http.post<NotebookData>(this.notebooksUrl, notebook, this.httpOptions).pipe(
+      tap((newMote: NotebookData) => this.log(`added Note w/ id=${newMote.id}`)),
+      catchError(this.handleError<NotebookData>('addNote'))
+    );
+  }
 
+  updateNotebook (notebook: NotebookData): Observable<any> {
+    return this.http.put(this.notebooksUrl, notebook, this.httpOptions).pipe(
+      tap(_ => this.log(`updated note id=${notebook.id}`)),
+      catchError(this.handleError<any>('updateNotebook'))
+    );
+  }
 
   private log(message: string) {
     this.messageService.add(`NotebookService: ${message}`);

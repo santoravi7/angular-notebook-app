@@ -7,10 +7,24 @@
   padding: 15px;
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 600px) {
   .notes-div{
     width: 125px !important;
     min-height: 125px !important; 
+  }
+  .notebook-edit-div input{    
+    font-size:14px !important;
+    font-weight: 700;
+  }
+  .todo-btn{
+    width: 35px !important;
+    height: 25px !important;
+  }
+  .pull-right-div{
+    width: 80px !important;
+  }
+  .notebook-edit-div input{
+    width: 80px;
   }
 }
 
@@ -30,7 +44,7 @@
 }
 
 .actions-div{
-  width: 200px;
+  width: 50%;
   position : absolute;
   top: 15px;
   right: 15px;
@@ -39,4 +53,15 @@
 .pull-right-div{
   float: right;
   width: 150px;
+}
+
+.notebook-edit-div input{
+  border: none;
+  font-family: lato;
+  font-size:18px;
+  font-weight: 700;
+}
+
+.notebook-edit-div{
+  display: inline-block;
 }
