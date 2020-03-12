@@ -38,6 +38,7 @@ export class ListNotebookComponent implements OnInit {
     this.colorRandomVal = Math.floor(Math.random() * this.colors.length); 
     this.noteLen = this.notebook.noteList.length+1;   
     this.notebook.noteList.push({
+        id: this.noteLen,
         name: 'New Note '+this.noteLen,    
         description: 'this is my first note description. I can add notes and to-do list here and save it for my future reference!!!',
         color: this.colors[this.colorRandomVal].value
