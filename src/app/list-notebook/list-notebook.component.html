@@ -6,23 +6,31 @@
       <button (click)="addTodo();" class="todo-btn" title="Add a Todo List"><img src="https://image.flaticon.com/icons/svg/1287/1287087.svg"/></button>
       <button (click)="addNote();"  title="Add Note" class="todo-btn" title="Write a Note to Yourself"><img src="https://image.flaticon.com/icons/svg/1159/1159876.svg"/></button>
     </div>
-    
 </div>
+
 <div class="container" >
   <div *ngIf="notebook">
     <div class="desc" *ngFor="let note of notebook.noteList;"> 
-      <div class="col-md-3 col-xs-6 col-sm-3 col-lg-2 p-15">
-          <div class="notes-div" [ngStyle]="{'background-color': note.color}">
-            <h4>{{note.name}}</h4>        
-          </div>
-      </div>
+      <a [title]="note.name+' details'" routerLink="/note/{{note.id}}"   >
+        <div class="col-md-3 col-xs-6 col-sm-3 col-lg-2 p-15">
+            <div class="notes-div" [ngStyle]="{'background-color': note.color}">
+              <h4>{{note.name}}</h4>        
+            </div>
+        </div>
+      
+      </a>
+      
     </div>
   </div>
   <div *ngIf="notebook.todoList">
     <div class="desc" *ngFor="let todo of notebook.todoList;"> 
       <div class="col-md-3 col-xs-6 col-sm-3 col-lg-2 p-15">
           <div class="notes-div" [ngStyle]="{'background-color': todo.color}">
-            <h4>{{todo.name}}</h4>        
+            <h4>{{todo.name}}</h4>   
+            <div class="todo-list" *ngIf="todo.list">
+               <input type="checkbox" [(ngModel)]="todo.checked" name="checkbox">
+              <label for="todo">{{todo.list}}</label>       
+            </div>     
           </div>
       </div>
     </div>  

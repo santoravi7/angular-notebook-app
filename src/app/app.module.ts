@@ -12,6 +12,7 @@ import { NotebookService } from './notebook.service';
 import { MessageService } from './message.service';
 import { MessageComponent } from './message/message.component'; 
 import { FormsModule } from '@angular/forms';
+import { ListNotesComponent } from './list-notes/list-notes.component';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { FormsModule } from '@angular/forms';
     NotebookComponent, 
     NavbarComponent, 
     ListNotebookComponent, 
-    MessageComponent 
+    MessageComponent, ListNotesComponent 
   ],
   bootstrap:    [ AppComponent ],
   providers: [InMemoryDataService,NotebookService, MessageService]
