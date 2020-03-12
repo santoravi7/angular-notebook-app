@@ -1,6 +1,6 @@
 .notes-div{
-  width: 200px !important;
-  min-height: 200px !important; 
+  width: 220px !important;
+  min-height: 220px !important; 
 }
 
 .p-15{
@@ -89,4 +89,24 @@
 
  .todo-list input:checked ~ .checkmark {
 	 background-color: #2196f3;
+}
+
+.intro{
+  padding: 5px 0px;
+  padding-bottom: 10px;
+  text-align: left;
+  font-weight: 400;
+  font-family: lato;
+  font-size: 12.5px;
+  width: 160px;
+  height: 115px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  line-height: 1.8;
+}
+
+.m-10{
+  margin-top:25px;
 }

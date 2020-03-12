@@ -1,5 +1,9 @@
 /* Add application styles & imports to this file! */
 
+body{
+  background : #f7f7f7;
+}
+
 app-navbar{
   height: 60px;
   background : #fff;
@@ -23,10 +27,7 @@ a, a:hover {
 
 
 .container{
-  padding: 0px;
-  min-height: 505px;
-  background : #f7f7f7;
-  width: 100%;
+  width: 95%;
 }
 
 app-notebook{

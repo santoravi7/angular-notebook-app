@@ -1,14 +1,16 @@
-<div class="container" >
-  <div *ngIf="notebook">
-    <div class="desc" *ngFor="let note of notebook.noteList;"> 
-      <a [title]="note.name+' details'" routerLink="/note/{{note.id}}"   >
-        <div class="col-md-3 col-xs-6 col-sm-3 col-lg-2 p-15">
-            <div class="notes-div" [ngStyle]="{'background-color': note.color}">
-              <h4>{{note.name}}</h4>        
-            </div>
+<div class="container">
+    <div>
+      <div class="col-md-12 col-xs-12 m-10">
+        <div *ngIf="notes" class="notes-textarea" [ngStyle]="{'background-color': notes.noteList[noteId].color}">
+          <input class="note-heading" [(ngModel)]='notes.noteList[noteId].name'/>
+          <div class="desc">
+              <textarea [(ngModel)]='notes.noteList[noteId].description' [ngStyle]="{'background-color': notes.noteList[noteId].color}"></textarea>
+              <div class="center">
+                <button class="save-btn" (click)="save()">Save</button>
+              </div>
+          </div>
+          
         </div>
-      
-      </a>
-      
+      </div>
     </div>
-  </div>
+</div>

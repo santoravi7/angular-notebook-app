@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NotebookData } from './notebook-data';
+import { Notedata } from '../notedata';
 import { Observable,of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -14,6 +15,7 @@ import { MessageService } from './message.service';
 
 export class NotebookService {
   private notebooksUrl = "api/notebooks";
+  private notesUrl = "api/notes";
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -33,6 +35,16 @@ export class NotebookService {
     return this.http.get<NotebookData>(url).pipe(
       tap(_ => this.log(`fetched NotebookData id=${id}`)),
       catchError(this.handleError<NotebookData>(`NotebookData id=${id}`))
+    );
+  }
+
+  getNote(id: number): Observable<NotebookData> {
+    console.log("getNote in notebookSevice -- "+id);
+    const url = `${this.notebooksUrl}/${id}`;
+    return this.http.get<NotebookData>(url).pipe(
+      tap(_ => this.log(`fetched note id=${id}`)),
+      catchError(this.handleError<NotebookData>(`NotebookData id=${id}`))
+      
     );
   }
 

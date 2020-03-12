@@ -15,21 +15,35 @@ export class ListNotesComponent implements OnInit {
 
   notebook:NotebookData;
   notes : Notedata[];
-
+  noteId;note;
   constructor( private route: ActivatedRoute,
     private notebookService: NotebookService,
     private location: Location
   ) { }
 
-    ngOnInit(): void {
-    this.getNoteBook();
+  ngOnInit(): void {
+    this.getNote();
   }
-  getNoteBook(): void {
+  getNote(): void {
+    
     const id = +this.route.snapshot.paramMap.get('id');
-    this.notebookService.getNoteBook(id)
+    console.log(id);
+    this.notebookService.getNote(id)
       .subscribe(
-        notebook => this.notebook = notebook
+        note => this.notes = note
       );
+    this.noteId = id-1;
+    console.log(this.noteId)
   } 
+  
+  goBack() : void {
+    this.location.back();
+  }
+
+
+   save(): void {
+    this.notebookService.updateNotebook(this.notebook)
+      .subscribe(() => this.goBack());
+  }
 
 }

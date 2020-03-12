@@ -1,7 +1,7 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { NotebookData } from '../notebook-data';
 import { Injectable } from '@angular/core';
-
+import { Notedata } from '../notedata';
 @Injectable({
   providedIn: 'root',
 })
@@ -15,7 +15,7 @@ export class InMemoryDataService implements InMemoryDbService {
           {
             id:1,
             name: 'Note 1',    
-            description: 'this is my first note description. I can add notes and to-do list here and save it for my future reference!!!',
+            description: 'this is my first note description. I can add notes and to-do list here and save it for my future reference!!!this is my first note description. I can add notes and to-do list here and save it for my future reference!!!this is my first note description. I can add notes and to-do list here and save it for my future reference!!!this is my first note description. I can add notes and to-do list here and save it for my future reference!!!',
             color: '#602379'
           },
           {
@@ -86,5 +86,9 @@ export class InMemoryDataService implements InMemoryDbService {
   // note id + 1.
   genId(notebook: NotebookData[]): number {
     return notebook.length > 0 ? Math.max(...notebook.map(notebook => notebook.id)) + 1 : 11;
+  }
+
+  getNote(note: Notedata[]):number{
+    return note.length > 0 ? Math.max(...note.map(note => note.id)) + 1 : 11;
   }
 }

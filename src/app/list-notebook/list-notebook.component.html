@@ -1,6 +1,13 @@
+
 <div class="actions-div">
+    <div class="back-btn pull-left">
+        <button (click)="goBack();" class="todo-btn" title="Add a Todo List"><img src="https://image.flaticon.com/icons/svg/2223/2223615.svg"/>
+        </button>
+</div>
+
     <div class="notebook-edit-div">
        <input class="note-heading" (keyup.enter)="updateName()"[(ngModel)]='notebook.name'/>
+      
     </div>
     <div class="pull-right-div">
       <button (click)="addTodo();" class="todo-btn" title="Add a Todo List"><img src="https://image.flaticon.com/icons/svg/1287/1287087.svg"/></button>
@@ -10,11 +17,12 @@
 
 <div class="container" >
   <div *ngIf="notebook">
-    <div class="desc" *ngFor="let note of notebook.noteList;"> 
+    <div class="desc m-10" *ngFor="let note of notebook.noteList;"> 
       <a [title]="note.name+' details'" routerLink="/note/{{note.id}}"   >
-        <div class="col-md-3 col-xs-6 col-sm-3 col-lg-2 p-15">
+        <div class="col-md-4 col-xs-12 col-sm-6 col-lg-3 p-15">
             <div class="notes-div" [ngStyle]="{'background-color': note.color}">
-              <h4>{{note.name}}</h4>        
+              <h4>{{note.name}}</h4>   
+               <div class="intro">{{note.description}}</div>       
             </div>
         </div>
       
