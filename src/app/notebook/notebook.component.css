@@ -87,12 +87,14 @@
   text-align: center;
   overflow: hidden;
   padding-top: 85px;
+  transition-delay:2s;
 }
 
 .overview-img img{
   width: 20px;
   float:right;
   margin-right: 15px;
+  transition-delay:2s;
 }
 
 .overview-img button{
@@ -100,6 +102,7 @@
   background: none;
   text-align: right;
   float: right;
+  transition-delay:2s;
 }
 
 .hide {
