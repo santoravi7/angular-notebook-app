@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { notebookList } from '../notebookList';
 import { NotebookData } from '../notebook-data';
 import { NotebookService } from '../notebook.service';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 @Component({
   selector: 'app-notebook',
@@ -13,8 +15,15 @@ export class NotebookComponent implements OnInit {
   hoverIdx = -1;
   colorRandomVal;
   colorVal;noteLen;img;
+   modalRef: BsModalRef;
 
-  constructor(private notebookService: NotebookService) { }
+  constructor(private notebookService: NotebookService,
+  private modalService: BsModalService) { }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+
   ngOnInit() {
     this.getNotebooks();
   }

@@ -12,13 +12,34 @@
           </div>  
           </a>
           <span class="overview-img" [ngClass]="{ 'overlay-icon': true, 'hide': hoverIdx !== notebookId }">
-            <button (click)="openConfirmationDialog(notebook)"  title="Delete Notebook">
+            <button (click)="openModal(template)" title="Delete Notebook">
               <img src="https://image.flaticon.com/icons/svg/1345/1345925.svg"/>
             </button>
             <div class="clr-div"></div>
             <img src="https://image.flaticon.com/icons/svg/1783/1783316.svg"/>
           </span>
+          <ng-template #template>
+            
+            <!-- <div class="modal-header modal-sm">
+              
+              <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div> -->
+            <div class="modal-body modal-sm">
+                <h6>Are you sure, you want to delete {{notebook.name}}?</h6>
+                <div class="buttons-section">
+                  <div class="cnl-btn">
+                      <button type="button" class="btn" (click)="modalRef.hide()" >Cancel</button>
+                  </div>
+                  <div class="del-btn">
+                      <button type="button" class="btn" (click)="deleteNotebook(notebook);modalRef.hide()" >Delete</button>
+                  </div>
+                </div>
+            </div>
+          </ng-template>
         </div>
       
     </div>
 </div>
+

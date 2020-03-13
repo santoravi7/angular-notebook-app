@@ -15,11 +15,14 @@ import { FormsModule } from '@angular/forms';
 import { ListNotesComponent } from './list-notes/list-notes.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalContentComponent } from './app.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   imports:      [ 
     BrowserModule, 
-    FormsModule,     
+    FormsModule,
+    ModalModule.forRoot(),     
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
@@ -32,7 +35,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NotebookComponent, 
     NavbarComponent, 
     ListNotebookComponent, 
-    MessageComponent, ListNotesComponent
+    MessageComponent, ListNotesComponent,
+    ModalContentComponent
+  ],
+   entryComponents: [
+    ModalContentComponent,
   ],
   bootstrap:    [ AppComponent ],
   providers: [InMemoryDataService,NotebookService, MessageService]
