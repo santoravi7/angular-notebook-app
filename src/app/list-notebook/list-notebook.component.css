@@ -24,7 +24,15 @@
   }
 }
 
-
+.back-btn{
+  width: 50px;
+  height: 30px;
+  border: none;
+  background: none;
+  position: absolute;
+  top: 12px;
+  left: 135px;
+}
 .todo-btn{
     width: 50px;
     height: 30px;
@@ -33,14 +41,14 @@
     float: right;
 }
 
-.todo-btn img{
+.todo-btn img, .back-btn img{
   width: 60%;
   background: #fff;
   color: #fff;
 }
 
 .actions-div{
-  width: 50%;
+  width: 58%;
   position : absolute;
   top: 15px;
   right: 15px;
@@ -56,6 +64,7 @@
   font-family: lato;
   font-size:18px;
   font-weight: 700;
+  text-align: center;
 }
 
 .notebook-edit-div{

@@ -2,15 +2,23 @@
   <button (click)="addNotebook();" class="add-btn" title="Add Note">+</button>
 </div>
 <div class="container">
-    <div *ngFor="let notebook of notebooks; index as notebookId" class="m-10">
-      <a [title]="notebook.name+' details'" routerLink="/detail/{{notebook.id}}"   >
+    <div *ngFor="let notebook of notebooks; index as notebookId" class="m-10" (mouseenter)="hoverIdx = notebookId" (mouseleave)="hoverIdx = -1"  >
+      
         <div class="col-md-4 col-xs-5 col-sm-4 col-lg-2 notebook-div">
+          <a [title]="notebook.name+' details'" routerLink="/detail/{{notebook.id}}" >
           <div id="container">
-            <div class="notesimg-div"[style.background]="'url(' + notebook.img + ')'"></div>
+          <div class="notesimg-div"[style.background]="'url(' + notebook.img + ')'"></div>
              <h4 class="nb-header">{{notebook.name}}</h4> 
-          </div>       
-         
+          </div>  
+          </a>
+          <span class="overview-img" [ngClass]="{ 'overlay-icon': true, 'hide': hoverIdx !== notebookId }">
+            <button (click)="openConfirmationDialog(notebook)"  title="Delete Notebook">
+              <img src="https://image.flaticon.com/icons/svg/1345/1345925.svg"/>
+            </button>
+            <div class="clr-div"></div>
+            <img src="https://image.flaticon.com/icons/svg/1783/1783316.svg"/>
+          </span>
         </div>
-      </a>
+      
     </div>
 </div>

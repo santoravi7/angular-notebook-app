@@ -13,26 +13,31 @@ import { MessageService } from './message.service';
 import { MessageComponent } from './message/message.component'; 
 import { FormsModule } from '@angular/forms';
 import { ListNotesComponent } from './list-notes/list-notes.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { ConfirmationDialogService } from './confirmation-dialog/confirmation-dialog.service';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports:      [ 
     BrowserModule, 
-    FormsModule, 
+    FormsModule,     
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    NgbModule
   ],
   declarations: [ 
     AppComponent, 
     NotebookComponent, 
     NavbarComponent, 
     ListNotebookComponent, 
-    MessageComponent, ListNotesComponent 
+    MessageComponent, ListNotesComponent, ConfirmationDialogComponent 
   ],
   bootstrap:    [ AppComponent ],
-  providers: [InMemoryDataService,NotebookService, MessageService]
+  providers: [InMemoryDataService,NotebookService, MessageService, ConfirmationDialogService],
+  entryComponents: [ ConfirmationDialogComponent ]
 })
 export class AppModule { }

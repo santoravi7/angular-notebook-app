@@ -1,10 +1,9 @@
-
-<div class="actions-div">
-    <div class="back-btn pull-left">
-        <button (click)="goBack();" class="todo-btn" title="Add a Todo List"><img src="https://image.flaticon.com/icons/svg/2223/2223615.svg"/>
+<div class="">
+        <button (click)="goBack();" class="back-btn" title="Add a Todo List"><img src="https://image.flaticon.com/icons/svg/2223/2223615.svg"/>
         </button>
 </div>
-
+<div class="actions-div">
+    
     <div class="notebook-edit-div">
        <input class="note-heading" (keyup.enter)="updateName()"[(ngModel)]='notebook.name'/>
       

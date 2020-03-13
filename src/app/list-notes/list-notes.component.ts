@@ -35,14 +35,14 @@ export class ListNotesComponent implements OnInit {
     this.noteId = id-1;
     console.log(this.noteId)
   } 
-  
+
   goBack() : void {
     this.location.back();
   }
 
 
    save(): void {
-    this.notebookService.updateNotebook(this.notebook)
+    this.notebookService.updateNotebook(this.notes)
       .subscribe(() => this.goBack());
   }
 

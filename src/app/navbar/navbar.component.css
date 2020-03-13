@@ -3,10 +3,25 @@ h4{
   font-family: lato;
   font-size: 20px;
   font-weight: 700;
+  float: left !important;
 }
 
 a, a:hover {
     cursor: pointer;
     color: #fff;
     text-decoration: none;
+}
+
+.back-btn{
+    width: 50px;
+    height: 30px;
+    border: none;
+    background: none;
+    display:inline-block;
+}
+
+.back-btn img{
+  width: 60%;
+  background: #fff;
+  color: #fff;
 }

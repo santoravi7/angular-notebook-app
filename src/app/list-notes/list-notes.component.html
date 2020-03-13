@@ -1,4 +1,8 @@
 <div class="container">
+  <div class="">
+        <button (click)="goBack();" class="back-btn" title="Add a Todo List"><img src="https://image.flaticon.com/icons/svg/2223/2223615.svg"/>
+        </button>
+</div>
     <div>
       <div class="col-md-12 col-xs-12 m-10">
         <div *ngIf="notes" class="notes-textarea" [ngStyle]="{'background-color': notes.noteList[noteId].color}">
