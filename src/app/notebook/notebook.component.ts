@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { notebookList } from '../notebookList';
 import { NotebookData } from '../notebook-data';
 import { NotebookService } from '../notebook.service';
-import { ConfirmationDialogService } from '../confirmation-dialog/confirmation-dialog.service';
 
 @Component({
   selector: 'app-notebook',
@@ -15,8 +14,7 @@ export class NotebookComponent implements OnInit {
   colorRandomVal;
   colorVal;noteLen;img;
 
-  constructor(private notebookService: NotebookService,
-  private confirmationDialogService: ConfirmationDialogService) { }
+  constructor(private notebookService: NotebookService) { }
   ngOnInit() {
     this.getNotebooks();
   }
@@ -41,9 +39,7 @@ export class NotebookComponent implements OnInit {
 
   public openConfirmationDialog(notebook) {
     console.log("this is open confirmation");
-    this.confirmationDialogService.confirm('Please confirm..', 'Do you really want to ... ?')
-    .then((confirmed) => this.deleteNotebook(notebook))
-    .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
+    
   }
 
 

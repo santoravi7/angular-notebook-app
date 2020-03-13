@@ -13,8 +13,6 @@ import { MessageService } from './message.service';
 import { MessageComponent } from './message/message.component'; 
 import { FormsModule } from '@angular/forms';
 import { ListNotesComponent } from './list-notes/list-notes.component';
-import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
-import { ConfirmationDialogService } from './confirmation-dialog/confirmation-dialog.service';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -34,10 +32,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NotebookComponent, 
     NavbarComponent, 
     ListNotebookComponent, 
-    MessageComponent, ListNotesComponent, ConfirmationDialogComponent 
+    MessageComponent, ListNotesComponent
   ],
   bootstrap:    [ AppComponent ],
-  providers: [InMemoryDataService,NotebookService, MessageService, ConfirmationDialogService],
-  entryComponents: [ ConfirmationDialogComponent ]
+  providers: [InMemoryDataService,NotebookService, MessageService]
 })
 export class AppModule { }
