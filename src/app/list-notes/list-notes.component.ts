@@ -26,13 +26,14 @@ export class ListNotesComponent implements OnInit {
   }
   getNote(): void {
     
-    const id = +this.route.snapshot.paramMap.get('id');
-    console.log(id);
-    this.notebookService.getNote(id)
+    const id1 = +this.route.snapshot.paramMap.get('id1');
+    const id2 = +this.route.snapshot.paramMap.get('id2');
+    console.log("id 1 - "+id1+" --- id2-"+id2)
+    this.notebookService.getNote(id1)
       .subscribe(
-        note => this.notes = note
+        note => this.notebook = note
       );
-    this.noteId = id-1;
+    this.noteId = id2-1;
     console.log(this.noteId)
   } 
 
@@ -42,7 +43,7 @@ export class ListNotesComponent implements OnInit {
 
 
    save(): void {
-    this.notebookService.updateNotebook(this.notes)
+    this.notebookService.updateNotebook(this.notebook)
       .subscribe(() => this.goBack());
   }
 

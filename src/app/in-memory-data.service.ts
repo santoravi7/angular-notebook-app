@@ -27,7 +27,13 @@ export class InMemoryDataService implements InMemoryDbService {
           {
             id:3,
             name: 'Note 3',    
-            description: '',
+            description: 'this is my first note description. I can add notes and to-do list here and save it for my future reference!!!this is my first note description. I can add notes and to-do list here and save it for my future reference!!!this is my first note description. I can add notes and to-do list here and save it for my future reference!!!this is my first note description. I can add notes and to-do list here and save it for my future reference!!!',
+            color: '#602379'
+          },
+          {
+            id:4,
+            name: 'Note 4',    
+            description: 'thid is a sample description',
             color: '#f3785c'
           }
         ],

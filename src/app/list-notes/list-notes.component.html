@@ -5,10 +5,10 @@
 </div>
     <div>
       <div class="col-md-12 col-xs-12 m-10">
-        <div *ngIf="notes" class="notes-textarea" [ngStyle]="{'background-color': notes.noteList[noteId].color}">
-          <input class="note-heading" [(ngModel)]='notes.noteList[noteId].name'/>
+        <div *ngIf="notebook" class="notes-textarea" [ngStyle]="{'background-color': notebook.noteList[noteId].color}">
+          <input class="note-heading" [(ngModel)]='notebook.noteList[noteId].name'/>
           <div class="desc">
-              <textarea [(ngModel)]='notes.noteList[noteId].description' [ngStyle]="{'background-color': notes.noteList[noteId].color}"></textarea>
+              <textarea [(ngModel)]='notebook.noteList[noteId].description' [ngStyle]="{'background-color': notebook.noteList[noteId].color}"></textarea>
               <div class="center">
                 <button class="save-btn" (click)="save()">Save</button>
               </div>
