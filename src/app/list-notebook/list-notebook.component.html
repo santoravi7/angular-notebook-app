@@ -30,14 +30,16 @@
     </div>
   </div>
   <div *ngIf="notebook.todoList">
-    <div class="desc" *ngFor="let todo of notebook.todoList;"> 
-      <a [title]="todo.name+' details'" routerLink="/todo/{{notebook.id}}/{{todo.id}}"   >
-      <div class="col-md-3 col-xs-6 col-sm-3 col-lg-2 p-15">
-          <div class="notes-div" [ngStyle]="{'background-color': todo.color}">
-            <h4>{{todo.name}}</h4>   
-            <div class="todo-list" *ngIf="todo.list">
-              <input type="checkbox" [(ngModel)]="todo.checked" name="checkbox">
-              <label for="todo">{{todo.list}}</label>       
+    <div class="desc" *ngFor="let todoList of notebook.todoList;"> 
+      <a [title]="todoList.name+' details'" routerLink="/todo/{{notebook.id}}/{{todoList.id}}"   >
+      <div class="col-md-4 col-xs-12 col-sm-6 col-lg-3 p-15">
+          <div class="notes-div" [ngStyle]="{'background-color': todoList.color}">
+            <h4>{{todoList.name}}</h4>   
+            <div *ngFor="let todo of todoList.list">
+                   <div class="todo-list" *ngIf="todo.title">
+                  <input type="checkbox" [(ngModel)]="todo.checked" name="checkbox">
+                  <label for="todo">{{todo.title}}</label>  
+                </div>
             </div>     
           </div>
       </div>

@@ -28,13 +28,13 @@ export class ListNotesComponent implements OnInit {
     
     const id1 = +this.route.snapshot.paramMap.get('id1');
     const id2 = +this.route.snapshot.paramMap.get('id2');
-    console.log("id 1 - "+id1+" --- id2-"+id2)
+    // console.log("id 1 - "+id1+" --- id2-"+id2)
     this.notebookService.getNote(id1)
       .subscribe(
         note => this.notebook = note
       );
     this.noteId = id2-1;
-    console.log(this.noteId)
+    // console.log(this.noteId)
   } 
 
   goBack() : void {

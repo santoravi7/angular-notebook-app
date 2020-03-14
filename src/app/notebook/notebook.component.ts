@@ -15,7 +15,7 @@ export class NotebookComponent implements OnInit {
   hoverIdx = -1;
   colorRandomVal;
   colorVal;noteLen;img;
-   modalRef: BsModalRef;
+  modalRef: BsModalRef;
 
   constructor(private notebookService: NotebookService,
   private modalService: BsModalService) { }
@@ -36,7 +36,6 @@ export class NotebookComponent implements OnInit {
     this.colorRandomVal = Math.floor(Math.random() * this.images.length); 
     this.noteLen = this.notebooks.length+1;
     name = "Notebook "+this.noteLen;
-    console.log("asdfa = "+name);
     img = this.images[this.colorRandomVal].value;
     noteList = [];todoList=[];
     if (!name) { return; }
@@ -46,14 +45,7 @@ export class NotebookComponent implements OnInit {
       });
   }
 
-  public openConfirmationDialog(notebook) {
-    console.log("this is open confirmation");
-    
-  }
-
-
   deleteNotebook(notebook: NotebookData): void {
-    console.log("this is del - "+notebook)
     this.notebooks = this.notebooks.filter(n => n !== notebook);
     this.notebookService.deleteNotebook(notebook).subscribe();
   }

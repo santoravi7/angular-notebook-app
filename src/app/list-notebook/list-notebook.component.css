@@ -74,6 +74,12 @@
 .todo-list{
   padding-left: 0px;
   float: left;
+  padding-top: 5px;
+}
+
+.todo-list li{
+  list-style: none;
+
 }
 
 .todo-list input{

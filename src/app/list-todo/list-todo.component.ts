@@ -13,7 +13,8 @@ import { Pipe } from '@angular/core';
 export class ListTodoComponent implements OnInit {
 
   notebook:NotebookData;
-  todoId;note;
+  todoId;note;todoLen;newToDoTitle;
+
   constructor( private route: ActivatedRoute,
     private notebookService: NotebookService,
     private location: Location
@@ -23,25 +24,23 @@ export class ListTodoComponent implements OnInit {
     this.getNote();
   }
   getNote(): void {
-    
     const id1 = +this.route.snapshot.paramMap.get('id1');
     const id2 = +this.route.snapshot.paramMap.get('id2');
-    console.log("id 1 - "+id1+" --- id2-"+id2)
     this.notebookService.getNote(id1)
       .subscribe(
         note => this.notebook = note
       );
     this.todoId = id2-1;
-    console.log(this.todoId)
+    // console.log(this.todoId)
   } 
 
   goBack() : void {
     this.location.back();
   }
-  todoLen;newToDoTitle;
+  
   addTodoItem(id:number) {
    this.todoLen = id;   
-   console.log("todo this.notebook - "+this.notebook.todoList[this.todoLen]);
+  //  console.log("todo this.notebook - "+this.notebook.todoList[this.todoLen]);
     this.notebook.todoList[this.todoLen].list.push({
         title:this.newToDoTitle,
         checked:false

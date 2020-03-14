@@ -84,7 +84,7 @@ export class ListNotebookComponent implements OnInit {
         {value : '#135845'},
         {value : '#c74d4d'},
         {value : '#b39363'},
-        {value : '#e3e3e3'},
+        {value : '#848484'},
         {value : '#01559e'},
         {value : '#506271'},
         {value : '#18CFA0'}
