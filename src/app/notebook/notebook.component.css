@@ -80,14 +80,17 @@
   left: 5px;
   width: 160px;
   height: 200px;
+   transition-delay:3s;
   background: rgba(0, 0, 0, 0.55);
   /* transition: background 0.8s ease; */
 	-webkit-transition: -webkit-transform 5s;
 	transition: transform 5s;
+    border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
   text-align: center;
   overflow: hidden;
   padding-top: 85px;
-  transition-delay:2s;
+ 
 }
 
 .overview-img img{
@@ -101,8 +104,24 @@
   border: none;
   background: none;
   text-align: right;
-  float: right;
   transition-delay:2s;
+  width: 30px !important;
+  padding: 0px !important;
+  position: absolute;
+  top: 60px !important;
+  right: 10px;
+}
+
+.overview-img .nb-info{
+  border: none;
+  background: none;
+  text-align: right;
+  transition-delay:2s;
+  width: 30px !important;
+  padding: 0px !important;
+  position: absolute;
+  bottom: 10px !important;
+  right: 10px;
 }
 
 .hide {
@@ -111,7 +130,7 @@
 
 .clr-div{
   clear:both;
-  height: 10px;
+  height: 20px;
 }
 
 .modal-dialog {
