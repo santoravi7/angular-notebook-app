@@ -17,6 +17,7 @@ import { ListNotesComponent } from './list-notes/list-notes.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalContentComponent } from './app.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { ListTodoComponent } from './list-todo/list-todo.component';
 
 @NgModule({
   imports:      [ 
@@ -36,7 +37,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     NavbarComponent, 
     ListNotebookComponent, 
     MessageComponent, ListNotesComponent,
-    ModalContentComponent
+    ModalContentComponent,
+    ListTodoComponent
   ],
    entryComponents: [
     ModalContentComponent,

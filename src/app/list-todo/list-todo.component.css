@@ -1,0 +1,110 @@
+.note-heading{
+  margin-top: 30px;
+  font-family: lato;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  border: none;
+  padding: 5px 10px;
+  background: none;
+}
+
+input:focus, textarea:focus, select:focus{
+      outline: none;
+  }
+
+.desc{
+  padding: 20px 0px;
+  text-transform: capitalize;
+}
+
+.save-btn{
+  margin: 10px 0px;
+  text-align: center;
+  border: none;
+  background: #fff;
+  color: #000;
+  padding: 5px 25px;
+}
+
+.center{
+  text-align: center;
+}
+
+textarea{
+  min-height: 300px;
+  width: 100%;
+  border: none;
+  color: #fff;
+  padding: 30px;  
+  line-height: 1.8;
+}
+
+.todo-modal{
+  padding: 0px 30px;
+  height: 450px;
+}
+
+.m-10{
+  margin-top:25px;
+}
+
+.back-btn{
+  width: 50px;
+  height: 30px;
+  border: none;
+  background: none;
+  position: absolute;
+  top: 12px;
+  left: 135px;
+}
+
+.back-btn img{
+  width: 60%;
+  background: #fff;
+  color: #fff;
+}
+
+.desc ol{
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: lato;
+  padding-left: 0px;
+  list-style: none;
+  text-transform: none;
+}
+
+.desc label{
+  width: 100%;
+  background: none;
+  padding: 15px 0;
+  border-bottom: 1px solid #ffffff4f;
+}
+
+.desc input{
+  background: none;
+  border: none;
+  color: #fff !important;
+  font-family: lato;
+  font-size: 15px;
+}
+
+.desc input::placeholder{
+  color: #ffffff4f;
+  font-family: lato;
+  font-size: 15px;
+}
+
+.desc li{
+  padding: 15px 0;
+  border-bottom: 1px solid #ffffff4f;
+}
+
+.desc input[type=checkbox], input[type=radio] {
+    margin: 0px 10px 0px 0px;
+    margin-top: 1px;
+    line-height: unset;
+    vertical-align: middle;
+}

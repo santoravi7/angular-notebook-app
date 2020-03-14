@@ -31,15 +31,17 @@
   </div>
   <div *ngIf="notebook.todoList">
     <div class="desc" *ngFor="let todo of notebook.todoList;"> 
+      <a [title]="todo.name+' details'" routerLink="/todo/{{notebook.id}}/{{todo.id}}"   >
       <div class="col-md-3 col-xs-6 col-sm-3 col-lg-2 p-15">
           <div class="notes-div" [ngStyle]="{'background-color': todo.color}">
             <h4>{{todo.name}}</h4>   
             <div class="todo-list" *ngIf="todo.list">
-               <input type="checkbox" [(ngModel)]="todo.checked" name="checkbox">
+              <input type="checkbox" [(ngModel)]="todo.checked" name="checkbox">
               <label for="todo">{{todo.list}}</label>       
             </div>     
           </div>
       </div>
+      </a>
     </div>  
   </div>
 </div>

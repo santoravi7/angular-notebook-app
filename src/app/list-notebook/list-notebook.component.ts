@@ -53,7 +53,8 @@ export class ListNotebookComponent implements OnInit {
     this.notebook.todoList.push({
         id: this.noteLen,
         name: 'My Todo '+this.noteLen,    
-        color: this.colors[this.colorRandomVal].value
+        color: this.colors[this.colorRandomVal].value,
+        list:[{}]
       })
     this.notebookService.updateNotebook(this.notebook)
       .subscribe(() => this.getNoteBook());

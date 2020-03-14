@@ -42,8 +42,12 @@ export class InMemoryDataService implements InMemoryDbService {
             id: 1,
             name: 'My Todo 1',
             color: '#5f4050',
-            checked: true,
-            list: 'this is a first todo'
+            list: [
+              {
+                title:'this is a first todo',
+                checked:true
+              }
+            ]
           }
         ],
         img: 'https://image.shutterstock.com/image-photo/mountains-during-sunset-beautiful-natural-260nw-407021107.jpg'
