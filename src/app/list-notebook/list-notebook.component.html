@@ -25,14 +25,47 @@
     <div class="desc m-10" *ngFor="let note of notebook.noteList;"> 
       <a [title]="note.name+' details'" routerLink="/note/{{notebook.id}}/{{note.id}}"   >
         <div class="col-md-4 col-xs-12 col-sm-6 col-lg-3 p-15">
-            <div class="notes-div" [ngStyle]="{'background-color': note.color}">
-              <h4>{{note.name}}</h4>   
-               <div class="intro">{{note.description}}</div>       
+            <div class="notes-div" [ngStyle]="{'background-color': note.color}" (mouseenter)="hoverIdx = note.id" (mouseleave)="hoverIdx = -1" >
+              <div >
+                    <h4>{{note.name}}</h4>   
+                    <div class="intro">{{note.description}}</div>
+              </div>
+              <div class="overview-img" [ngClass]="{ 'overlay-icon': true, 'hide': hoverIdx !== note.id }">
+                <div>
+                  <button (click)="openModal(template);" title="Delete Notebook">
+                    <img src="https://image.flaticon.com/icons/svg/1345/1345925.svg"/>
+                  </button>
+                  <div class="clr-div"></div>
+                  <button class="nb-info" (click)="toggle(notebook.id)" title="Info">
+                    <img src="https://image.flaticon.com/icons/svg/1783/1783316.svg"/>
+                  </button>
+                </div>
+                
+              </div>       
             </div>
         </div>
-      
-      </a>
-      
+      </a>      
+ 
+    <ng-template #template>
+            
+      <!-- <div class="modal-header modal-sm">
+        
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> -->
+      <div class="modal-body modal-sm">
+          <h6>Are you sure, you want to delete {{note.name}}?</h6>
+          <div class="buttons-section">
+            <div class="cnl-btn">
+                <button type="button" class="btn" (click)="modalRef.hide()" >Cancel</button>
+            </div>
+            <div class="del-btn">
+                <button type="button" class="btn" (click)="deleteNote(note);modalRef.hide()" >Delete</button>
+            </div>
+          </div>
+      </div>
+    </ng-template>
     </div>
   </div>
   

@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 import { Location } from '@angular/common';
 import { NotebookData } from '../notebook-data';
 import { NotebookService } from '../notebook.service';
 import { Pipe } from '@angular/core';
 import { Notedata } from '../notedata';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 @Component({
   selector: 'app-list-notebook',
@@ -13,16 +15,25 @@ import { Notedata } from '../notedata';
 })
 export class ListNotebookComponent implements OnInit {
   notebook:NotebookData;
-  notes : Notedata[];
+  notes : Notedata[] = [];
+  modalRef: BsModalRef;
+  hoverIdx = -1;
   constructor(
     private route: ActivatedRoute,
     private notebookService: NotebookService,
-    private location: Location
+    private location: Location,
+    private modalService: BsModalService
     ) { }
 
   ngOnInit(): void {
     this.getNoteBook();
   }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+
+
   getNoteBook(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.notebookService.getNoteBook(id)
@@ -67,6 +78,13 @@ export class ListNotebookComponent implements OnInit {
       .subscribe(() => this.goBack());
   }
   
+  deleteNote(note): void{
+    console.log("delete Note == "+note.id);
+    this.notes = this.notes.filter(n => n !== note);
+    console.log("delete Note -- "+this.notes);
+    this.notebookService.deleteNote(this.notes).subscribe();
+  }
+
   goBack() : void {
     this.location.back();
   }

@@ -66,6 +66,17 @@ export class NotebookService {
     );
   }
 
+  deleteNote (notebook: Notedata | number): Observable<Notedata> {
+    const id = typeof notebook === 'number' ? notebook : notebook.id;
+    console.log("del Note in service -- "+notebook+" -- id --"+id);
+    const url = `${this.notebooksUrl}/${id}`;
+
+    return this.http.delete<NotebookData>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted note id=${id}`)),
+      catchError(this.handleError<NotebookData>('deleteNote'))
+    );
+  }
+
   updateNotebook (notebook: NotebookData): Observable<any> {
     console.log("updateNotebook - "+notebook);
     return this.http.put(this.notebooksUrl, notebook, this.httpOptions).pipe(
