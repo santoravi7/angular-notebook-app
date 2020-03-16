@@ -173,3 +173,19 @@
   display: inline-block;
   margin-top: 35px;
 }
+
+.nb-info-set{
+  float: left;
+  margin-top: 35px;
+  margin-left: 35px;
+  text-align: left;
+}
+
+.nb-info-img{
+  float:left;
+}
+
+.images-set-tab{
+  overflow: scroll;
+  height: 350px;
+}
