@@ -15,6 +15,12 @@
 </div>
 
 <div class="container" >
+  <div *ngIf="!notebook.noteList.length>0 && !notebook.todoList.length>0">
+   <div class="quote-text"> 
+      <h3>The beginning is the most important part of the work.</h3>
+      <h4>- Plato</h4>
+   </div>
+  </div>
   <div *ngIf="notebook">
     <div class="desc m-10" *ngFor="let note of notebook.noteList;"> 
       <a [title]="note.name+' details'" routerLink="/note/{{notebook.id}}/{{note.id}}"   >
@@ -29,6 +35,7 @@
       
     </div>
   </div>
+  
   <div *ngIf="notebook.todoList">
     <div class="desc" *ngFor="let todoList of notebook.todoList;"> 
       <a [title]="todoList.name+' details'" routerLink="/todo/{{notebook.id}}/{{todoList.id}}"   >

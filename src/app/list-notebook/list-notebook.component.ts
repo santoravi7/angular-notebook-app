@@ -41,7 +41,8 @@ export class ListNotebookComponent implements OnInit {
         id: this.noteLen,
         name: 'New Note '+this.noteLen,    
         description: 'this is my first note description. I can add notes and to-do list here and save it for my future reference!!!',
-        color: this.colors[this.colorRandomVal].value
+        color: this.colors[this.colorRandomVal].value,
+        created: new Date()
       })
     this.notebookService.updateNotebook(this.notebook)
       .subscribe(() => this.getNoteBook());
@@ -54,7 +55,8 @@ export class ListNotebookComponent implements OnInit {
         id: this.noteLen,
         name: 'My Todo '+this.noteLen,    
         color: this.colors[this.colorRandomVal].value,
-        list:[{}]
+        list:[{}],
+        created: new Date()
       })
     this.notebookService.updateNotebook(this.notebook)
       .subscribe(() => this.getNoteBook());

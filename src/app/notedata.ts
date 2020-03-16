@@ -3,4 +3,5 @@ export interface Notedata {
   name : string;
   description : string;
   color: string;
+  created: Date;
 }

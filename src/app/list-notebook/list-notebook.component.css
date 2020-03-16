@@ -125,3 +125,17 @@
 .m-10{
   margin-top:25px;
 }
+
+.quote-text{
+  text-align: center;
+  margin-top: 15%;
+  font-size: 2rem !important;
+  font-weight: 400;
+  position: absolute;
+  top: 15%;
+  color: #999999;
+  font-family: Baskerville;
+  font-style: italic;
+  height: 80px;
+  width: 85%;
+}

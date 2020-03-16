@@ -46,14 +46,17 @@ export class NotebookComponent implements OnInit {
         .subscribe(notes => this.notebooks = notes);
   }
 
-  addNotebook(name: string, noteList: any[], todoList: any[], img: string): void {
+  addNotebook(name: string, noteList: any[], todoList: any[], img: string,created: Date): void {
     this.colorRandomVal = Math.floor(Math.random() * this.images.length); 
     this.noteLen = this.notebooks.length+1;
     name = "Notebook "+this.noteLen;
     img = this.images[this.colorRandomVal].value;
     noteList = [];todoList=[];
+    created = new Date();
+    if(!created)
+    created = new Date();
     if (!name) { return; }
-    this.notebookService.addNotebook({ name,noteList,todoList,img } as NotebookData)
+    this.notebookService.addNotebook({ name,noteList,todoList,img,created } as NotebookData)
       .subscribe(note => {
         this.notebooks.push(note);
       });
@@ -62,6 +65,16 @@ export class NotebookComponent implements OnInit {
   deleteNotebook(notebook: NotebookData): void {
     this.notebooks = this.notebooks.filter(n => n !== notebook);
     this.notebookService.deleteNotebook(notebook).subscribe();
+  }
+
+  updateImg(image:string,notebook: NotebookData): void{
+    notebook.img = image;
+     this.notebookService.updateNotebook(notebook).subscribe();  
+  }
+
+  updateName(notebook:NotebookData): void{
+    this.notebookService.updateNotebook(notebook)
+      .subscribe();
   }
 
    images = [ 

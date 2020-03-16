@@ -3,7 +3,8 @@
 </div>
 <div class="container">
     <div *ngFor="let notebook of notebooks; index as notebookId" class="m-10" (mouseenter)="hoverIdx = notebookId" (mouseleave)="hoverIdx = -1"  >
-         <div *ngIf="show && notebook.id == clickIdx" class="settings-tab">
+        <div [ngClass]="{'overlay-div':notebook.id == clickIdx}">
+          <div *ngIf="show && notebook.id == clickIdx" class="settings-tab">
               <button type="button" class="close pull-right" aria-label="Close" (click)="toggle(notebook.id)">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -15,20 +16,25 @@
 
                 </div>
                 <div class="nb-info-set">
-                  <h4 class="nb-header">{{notebook.name}}</h4> 
-                  <h4 class="nb-header">{{notebook.noteList.length+notebook.todoList.length}} Notes</h4> 
-
+                  <input class="note-heading" (keyup.enter)="updateName(notebook)"[(ngModel)]='notebook.name'/>
+                   <div class="clr-div"></div>
+                  <img src="https://image.flaticon.com/icons/svg/660/660726.svg"/>
+                  <h4 class="nb-header txt-left">{{notebook.noteList.length+notebook.todoList.length}} Notes</h4> 
+                  <div class="clr-div"></div>
+                  <img src="https://image.flaticon.com/icons/svg/660/660707.svg"/>
+                  <h4 class="nb-header txt-left">{{ notebook.created | date:'dd MMM yyyy' }}</h4>
                 </div>
                 </div>
                 <div class="clr-div"></div>
                 <div class="images-set-tab">
                   <h4 class="nb-header">Change your background</h4>
                   <div class="nb-info-img" *ngFor="let image of images">
-                  <div class="notesimg-div set-bg"[style.background]="'url(' + image.value + ')'"></div>
+                  <div class="notesimg-div set-bg"[style.background]="'url(' + image.value + ')'"(click)="updateImg(image.value,notebook);"></div>
                   </div>
                 </div>
               </div>
           </div>
+        </div>
         <div class="col-md-4 col-xs-5 col-sm-4 col-lg-2 notebook-div">
           <a [title]="notebook.name+' details'" routerLink="/detail/{{notebook.id}}" >
           <div id="container">
