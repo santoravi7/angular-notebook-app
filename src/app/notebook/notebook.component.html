@@ -3,7 +3,16 @@
 </div>
 <div class="container">
     <div *ngFor="let notebook of notebooks; index as notebookId" class="m-10" (mouseenter)="hoverIdx = notebookId" (mouseleave)="hoverIdx = -1"  >
-      
+         <div *ngIf="show && notebook.id == clickIdx" class="settings-tab">
+              <button type="button" class="close pull-right" aria-label="Close" (click)="toggle(notebook.id)">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div>
+                <h4 class="nb-header">Notebook Info</h4>
+                <div class="notesimg-div set-bg"[style.background]="'url(' + notebook.img + ')'"></div>
+                <h4 class="nb-header">{{notebook.name}}</h4> 
+              </div>
+          </div>
         <div class="col-md-4 col-xs-5 col-sm-4 col-lg-2 notebook-div">
           <a [title]="notebook.name+' details'" routerLink="/detail/{{notebook.id}}" >
           <div id="container">
@@ -12,15 +21,16 @@
           </div>  
           </a>
           <span class="overview-img" [ngClass]="{ 'overlay-icon': true, 'hide': hoverIdx !== notebookId }">
-            <button (click)="openModal(template)" title="Delete Notebook">
+            <button (click)="openModal(template);" title="Delete Notebook">
               <img src="https://image.flaticon.com/icons/svg/1345/1345925.svg"/>
             </button>
             <div class="clr-div"></div>
-            <button class="nb-info" (click)="openModal(template)" title="Info">
+            <button class="nb-info" (click)="toggle(notebook.id)" title="Info">
               <img src="https://image.flaticon.com/icons/svg/1783/1783316.svg"/>
             </button>
             
           </span>
+         
           <ng-template #template>
             
             <!-- <div class="modal-header modal-sm">

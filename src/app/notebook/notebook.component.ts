@@ -12,9 +12,10 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 })
 export class NotebookComponent implements OnInit {
   notebooks : NotebookData[];
-  hoverIdx = -1;
+  hoverIdx = -1;clickIdx=-1;
   colorRandomVal;
   colorVal;noteLen;img;
+  public show:boolean = false;
   modalRef: BsModalRef;
 
   constructor(private notebookService: NotebookService,
@@ -22,6 +23,19 @@ export class NotebookComponent implements OnInit {
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+  }
+
+  toggle(notebookId:number) {
+    if(this.clickIdx===notebookId)
+    {
+      this.clickIdx = -1;
+    }
+    else  
+    {
+      this.show = true;
+      this.clickIdx=notebookId;
+    }
+      
   }
 
   ngOnInit() {

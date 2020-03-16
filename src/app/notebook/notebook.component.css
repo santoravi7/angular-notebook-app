@@ -91,23 +91,14 @@
   border: none;
   background: none;
   text-align: right;
-  width: 30px !important;
-  padding: 0px !important;
-  position: absolute;
-  top: 60px !important;
-  right: 10px;
+  /* width: 30px !important; */
+  /* padding: 0px !important; */
+  /* position: absolute; */
+  /* top: 60px !important; */
+  /* right: 10px; */
+  float: right;
 }
 
-.overview-img .nb-info{
-  border: none;
-  background: none;
-  text-align: right;
-  width: 30px !important;
-  padding: 0px !important;
-  position: absolute;
-  bottom: 10px !important;
-  right: 10px;
-}
 
 .hide {
   display: none;
@@ -154,7 +145,31 @@
 }
 
 .cnl-btn, .del-btn{
-    width: 50%;
-    display: inline-block;
-    text-align: center;
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+}
+
+.settings-tab{
+  position: absolute;
+  right: 0;
+  height: 100%;
+  top: 0;
+  background: #fff;
+  box-shadow: -1px 2px 12px 0px #848484;
+  width: 450px;
+  z-index: 2;
+  padding: 20px;
+}
+
+.settings-tab .close{
+  font-size: 35px;
+  font-family: lato;
+  font-weight: 400;
+}
+
+.settings-tab .set-bg{
+  width: 160px;
+  display: inline-block;
+  margin-top: 35px;
 }
