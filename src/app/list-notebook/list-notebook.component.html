@@ -21,7 +21,7 @@
       <h4>- Plato</h4>
    </div>
   </div>
-  <div *ngIf="notebook">
+  <div *ngIf="notebook.noteList">
     <div class="desc m-10" *ngFor="let note of notebook.noteList;"> 
       <a [title]="note.name+' details'" routerLink="/note/{{notebook.id}}/{{note.id}}"   >
         <div class="col-md-4 col-xs-12 col-sm-6 col-lg-3 p-15">

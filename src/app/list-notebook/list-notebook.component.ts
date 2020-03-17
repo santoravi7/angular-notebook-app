@@ -79,10 +79,7 @@ export class ListNotebookComponent implements OnInit {
   }
   delNode;
   deleteNote(noteId:number): void{
-    console.log(this.notebook.noteList.length);
-    this.delNode=this.notebook.noteList[noteId-1];
-    console.log(this.delNode);
-    this.notebook.noteList.splice(noteId-1, 1);
+    this.notebook.noteList[noteId-1]=" ";    
     this.notebookService.updateNotebook(this.notebook)
       .subscribe(() => this.goBack());
   }
