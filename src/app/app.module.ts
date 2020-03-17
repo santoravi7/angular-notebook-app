@@ -13,6 +13,7 @@ import { MessageService } from './message.service';
 import { MessageComponent } from './message/message.component'; 
 import { FormsModule } from '@angular/forms';
 import { ListNotesComponent } from './list-notes/list-notes.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalContentComponent } from './app.component';
@@ -23,6 +24,7 @@ import { ListTodoComponent } from './list-todo/list-todo.component';
   imports:      [ 
     BrowserModule, 
     FormsModule,
+    BrowserAnimationsModule,
     ModalModule.forRoot(),     
     AppRoutingModule,
     HttpClientModule,
