@@ -77,12 +77,14 @@ export class ListNotebookComponent implements OnInit {
     this.notebookService.updateNotebook(this.notebook)
       .subscribe(() => this.goBack());
   }
-  
-  deleteNote(note): void{
-    console.log("delete Note == "+note.id);
-    this.notes = this.notes.filter(n => n !== note);
-    console.log("delete Note -- "+this.notes);
-    this.notebookService.deleteNote(this.notes).subscribe();
+  delNode;
+  deleteNote(noteId:number): void{
+    console.log(this.notebook.noteList.length);
+    this.delNode=this.notebook.noteList[noteId-1];
+    console.log(this.delNode);
+    this.notebook.noteList.splice(noteId-1, 1);
+    this.notebookService.updateNotebook(this.notebook)
+      .subscribe(() => this.goBack());
   }
 
   goBack() : void {

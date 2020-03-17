@@ -78,7 +78,7 @@ export class NotebookService {
   }
 
   updateNotebook (notebook: NotebookData): Observable<any> {
-    console.log("updateNotebook - "+notebook);
+    console.log("updateNotebook - "+notebook.noteList.length);
     return this.http.put(this.notebooksUrl, notebook, this.httpOptions).pipe(
       tap(_ => this.log(`updated note id=${notebook.id}`)),
       catchError(this.handleError<any>('updateNotebook'))
