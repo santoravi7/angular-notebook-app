@@ -14,7 +14,8 @@ export class ListTodoComponent implements OnInit {
 
   notebook:NotebookData;
   todoId;note;todoLen;newToDoTitle;
-
+  hoverIdx = -1;
+  public show:boolean = false;
   constructor( private route: ActivatedRoute,
     private notebookService: NotebookService,
     private location: Location
@@ -52,7 +53,7 @@ export class ListTodoComponent implements OnInit {
 
   removeTodoItem(id:number,id2:number) {
    this.todoLen = id;   
-  //  console.log("todo this.notebook - "+this.notebook.todoList[this.todoLen]);
+    console.log("todo this.notebook - "+id2);
     this.notebook.todoList[this.todoLen].list.splice(id2,1);
     this.notebookService.updateNotebook(this.notebook)
       .subscribe(() => this.getNote());
@@ -63,5 +64,6 @@ export class ListTodoComponent implements OnInit {
     this.notebookService.updateNotebook(this.notebook)
       .subscribe(() => this.goBack());
   }
+
 
 }

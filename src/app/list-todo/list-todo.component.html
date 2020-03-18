@@ -7,17 +7,22 @@
       <div class="col-md-12 col-xs-12 m-10">
         <div *ngIf="notebook" class="todo-modal" [ngStyle]="{'background-color': notebook.todoList[todoId].color}">
           <input class="note-heading" [(ngModel)]='notebook.todoList[todoId].name'/>
-          <div class="desc">
+          <div class="desc"(mouseleave)="hoverIdx=-1">
               <label>
                 <input type="text" [(ngModel)]="newToDoTitle" placeholder="Add new task..." (keyup.enter)="addTodoItem(todoId)">
               </label>
               <ol>
                 <li class="overview-img" *ngFor="let todo of notebook.todoList[todoId].list; index as todoEleId ">
-                  <input type="checkbox" [(ngModel)]="todo.checked"> {{todo.title}}
-                  <button (click)="removeTodoItem(todoId,todoEleId);" title="Delete Notebook">
+                  <div (mouseover)="hoverIdx = todoEleId;" >
+                  <input type="checkbox" [(ngModel)]="todo.checked" > {{todo.title}}
+                  </div>
+                  <span (click)="removeTodoItem(todoId,todoEleId);" >
+                  <button *ngIf="hoverIdx==todoEleId" title="Delete Notebook">
                     <img src="https://image.flaticon.com/icons/svg/1345/1345925.svg"/>
                   </button>
+                  </span>
                 </li>
+                
               </ol>
               
           </div>
