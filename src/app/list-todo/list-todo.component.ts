@@ -52,6 +52,14 @@ export class ListTodoComponent implements OnInit {
    this.newToDoTitle = '';
   }
 
+  updateTodoItem(id:number,todoId:number,title:string,checked:boolean) {
+    this.notebook.todoList[id].list[todoId].title=title;
+    this.notebook.todoList[id].list[todoId].checked=checked;
+    this.notebookService.updateNotebook(this.notebook)
+      .subscribe(() => this.getNote());
+   this.newToDoTitle = '';
+  }
+
   removeTodoItem(id:number,id2:number) {
    this.todoLen = id;   
     console.log("todo this.notebook - "+id2);
@@ -66,6 +74,8 @@ export class ListTodoComponent implements OnInit {
     this.notebookService.updateNotebook(notebook)
       .subscribe();
   }
+
+  
 
   save(): void {
     this.notebookService.updateNotebook(this.notebook)

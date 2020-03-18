@@ -14,8 +14,10 @@
               <ol>
                 <li class="overview-img" *ngFor="let todo of notebook.todoList[todoId].list; index as todoEleId ">
                   <div class="todolist-div" (mouseover)="hoverIdx = todoEleId;" >
-                      <input type="checkbox" (click)="updateName(notebook)"[(ngModel)]="todo.checked" > 
-                      <label>{{todo.title}}</label>
+                      <input type="checkbox" (click)="updateTodoItem(todoId,todoEleId,todo.title,!todo.checked)"[(ngModel)]="todo.checked" > 
+                      <label>
+                        <input  type="text" [(ngModel)]="todo.title" (keyup.enter)="updateTodoItem(todoId,todoEleId,todo.title,todo.checked)"/>
+                      </label>
                   </div>
                   <span (click)="removeTodoItem(todoId,todoEleId);" >
                   <button *ngIf="hoverIdx==todoEleId" title="Delete Notebook">

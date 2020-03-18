@@ -73,12 +73,12 @@
     <div class="desc" *ngFor="let todoList of notebook.todoList; index as tiId; "> 
       <a  *ngIf="todoList.name" [title]="todoList.name+' details'" routerLink="/todo/{{notebook.id}}/{{todoList.id}}"   >
       <div class="col-md-4 col-xs-12 col-sm-6 col-lg-3 p-15">
-          <div class="notes-div" [ngStyle]="{'background-color': todoList.color}" (mouseenter)="hoverIdx = todoList.id" (mouseleave)="hoverIdx = -1" >
+          <div class="notes-div todo-wrapper" [ngStyle]="{'background-color': todoList.color}" (mouseenter)="hoverIdx = todoList.id" (mouseleave)="hoverIdx = -1" >
             <h4>{{todoList.name}}</h4>   
             <div *ngFor="let todo of todoList.list;">
                 <div class="todo-list" *ngIf="todo.title">
                   <input type="checkbox" [(ngModel)]="todo.checked" name="checkbox">
-                  <label for="todo">{{todo.title}}--{{todo.checked}}</label>  
+                  <label class="todo-width" for="todo">{{todo.title}}</label>  
                 </div>
                 
             </div>

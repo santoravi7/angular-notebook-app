@@ -44,9 +44,30 @@ textarea{
 .todo-modal{
   padding: 0px 30px;
   height: 450px;
-  overflow:scroll;
-  
+  overflow-y:scroll;
+
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #585858;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(0, 0, 0);
+}
+
 
 .m-10{
   margin-top:25px;
@@ -135,9 +156,19 @@ textarea{
   height: 40px;
 }
 
-.todolist-div label{
+.todolist-div{
+  width: 85%;
+}
+
+.todolist-div label,.todolist-div label input{
   word-break: break-word;
-  width: 90%;
+  width: 80%;
   border: none;
   padding: 0px;
+}
+
+.todolist-div label input{
+  width: 100%;
+  background: none;
+  min-height: 4px;
 }

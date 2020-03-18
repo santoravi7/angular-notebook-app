@@ -34,6 +34,17 @@
   left: 135px;
 }
 
+.todo-wrapper{
+   overflow: hidden;
+   height: 130px;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+.todo-width{
+  width: 90%;
+}
+
 .todo-btn{
     width: 50px;
     height: 30px;
@@ -78,6 +89,7 @@
   width: 100%;
   padding-top: 5px;
   word-break: break-all;
+   
 }
 
 .todo-list li{
