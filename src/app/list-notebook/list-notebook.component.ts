@@ -66,7 +66,8 @@ export class ListNotebookComponent implements OnInit {
         id: this.noteLen,
         name: 'My Todo '+this.noteLen,    
         color: this.colors[this.colorRandomVal].value,
-        list:[{}],
+        list:[{title:'this is a first todo',
+                checked:true}],
         created: new Date()
       })
     this.notebookService.updateNotebook(this.notebook)

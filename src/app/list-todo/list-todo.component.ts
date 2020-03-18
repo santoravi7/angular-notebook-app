@@ -50,6 +50,14 @@ export class ListTodoComponent implements OnInit {
    this.newToDoTitle = '';
   }
 
+  removeTodoItem(id:number,id2:number) {
+   this.todoLen = id;   
+  //  console.log("todo this.notebook - "+this.notebook.todoList[this.todoLen]);
+    this.notebook.todoList[this.todoLen].list.splice(id2,1);
+    this.notebookService.updateNotebook(this.notebook)
+      .subscribe(() => this.getNote());
+   this.newToDoTitle = '';
+  }
 
    save(): void {
     this.notebookService.updateNotebook(this.notebook)

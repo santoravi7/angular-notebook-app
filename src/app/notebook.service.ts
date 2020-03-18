@@ -39,7 +39,6 @@ export class NotebookService {
   }
 
   getNote(id: number): Observable<NotebookData> {
-    console.log("getNote in notebookSevice -- "+id);
     const url = `${this.notebooksUrl}/${id}`;
     return this.http.get<NotebookData>(url).pipe(
       tap(_ => this.log(`fetched note id=${id}`)),
@@ -68,7 +67,7 @@ export class NotebookService {
 
   deleteNote (notebook: Notedata | number): Observable<Notedata> {
     const id = typeof notebook === 'number' ? notebook : notebook.id;
-    console.log("del Note in service -- "+notebook+" -- id --"+id);
+  
     const url = `${this.notebooksUrl}/${id}`;
 
     return this.http.delete<NotebookData>(url, this.httpOptions).pipe(
@@ -78,7 +77,6 @@ export class NotebookService {
   }
 
   updateNotebook (notebook: NotebookData): Observable<any> {
-    console.log("updateNotebook - "+notebook.noteList.length);
     return this.http.put(this.notebooksUrl, notebook, this.httpOptions).pipe(
       tap(_ => this.log(`updated note id=${notebook.id}`)),
       catchError(this.handleError<any>('updateNotebook'))

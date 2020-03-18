@@ -12,8 +12,11 @@
                 <input type="text" [(ngModel)]="newToDoTitle" placeholder="Add new task..." (keyup.enter)="addTodoItem(todoId)">
               </label>
               <ol>
-                <li *ngFor="let todo of notebook.todoList[todoId].list">
+                <li class="overview-img" *ngFor="let todo of notebook.todoList[todoId].list; index as todoEleId ">
                   <input type="checkbox" [(ngModel)]="todo.checked"> {{todo.title}}
+                  <button (click)="removeTodoItem(todoId,todoEleId);" title="Delete Notebook">
+                    <img src="https://image.flaticon.com/icons/svg/1345/1345925.svg"/>
+                  </button>
                 </li>
               </ol>
               

@@ -108,3 +108,22 @@ textarea{
     line-height: unset;
     vertical-align: middle;
 }
+
+
+.overview-img img{
+  width: 20px;
+  float:right;
+  margin-right: 15px;
+}
+
+.overview-img button{
+  border: none;
+  background: none;
+  text-align: right;
+  /* width: 30px !important; */
+  /* padding: 0px !important; */
+  /* position: absolute; */
+  /* top: 60px !important; */
+  /* right: 10px; */
+  float: right;
+}
