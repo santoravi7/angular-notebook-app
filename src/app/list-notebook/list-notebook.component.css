@@ -33,6 +33,7 @@
   top: 12px;
   left: 135px;
 }
+
 .todo-btn{
     width: 50px;
     height: 30px;
@@ -74,7 +75,9 @@
 .todo-list{
   padding-left: 0px;
   float: left;
+  width: 100%;
   padding-top: 5px;
+  word-break: break-all;
 }
 
 .todo-list li{

@@ -14,7 +14,7 @@ input:focus, textarea:focus, select:focus{
       outline: none;
   }
 
-.desc{
+.todo-desc{
   padding: 20px 0px;
   text-transform: capitalize;
 }
@@ -44,6 +44,8 @@ textarea{
 .todo-modal{
   padding: 0px 30px;
   height: 450px;
+  overflow:scroll;
+  
 }
 
 .m-10{
@@ -66,7 +68,7 @@ textarea{
   color: #fff;
 }
 
-.desc ol{
+.todo-desc ol{
   color: #fff;
   font-size: 14px;
   line-height: 1.5;
@@ -76,33 +78,38 @@ textarea{
   text-transform: none;
 }
 
-.desc label{
+.todo-desc label{
   width: 100%;
   background: none;
   padding: 15px 0;
   border-bottom: 1px solid #ffffff4f;
 }
 
-.desc input{
+.todo-input{
+  width:100%;
+}
+
+.todo-desc input{
   background: none;
   border: none;
   color: #fff !important;
   font-family: lato;
   font-size: 15px;
+
 }
 
-.desc input::placeholder{
+.todo-desc input::placeholder{
   color: #ffffff4f;
   font-family: lato;
   font-size: 15px;
 }
 
-.desc li{
+.todo-desc li{
   padding: 15px 0;
   border-bottom: 1px solid #ffffff4f;
 }
 
-.desc input[type=checkbox], input[type=radio] {
+.todo-desc input[type=checkbox], input[type=radio] {
     margin: 0px 10px 0px 0px;
     margin-top: 1px;
     line-height: unset;
@@ -126,4 +133,11 @@ textarea{
   z-index: 2;
   width: 60px;
   height: 40px;
+}
+
+.todolist-div label{
+  word-break: break-word;
+  width: 90%;
+  border: none;
+  padding: 0px;
 }

@@ -6,15 +6,16 @@
     <div>
       <div class="col-md-12 col-xs-12 m-10">
         <div *ngIf="notebook" class="todo-modal" [ngStyle]="{'background-color': notebook.todoList[todoId].color}">
-          <input class="note-heading" [(ngModel)]='notebook.todoList[todoId].name'/>
-          <div class="desc"(mouseleave)="hoverIdx=-1">
+          <input class="note-heading" [(ngModel)]='notebook.todoList[todoId].name'(keyup.enter)="updateName(notebook)"/>
+          <div class="todo-desc"(mouseleave)="hoverIdx=-1">
               <label>
-                <input type="text" [(ngModel)]="newToDoTitle" placeholder="Add new task..." (keyup.enter)="addTodoItem(todoId)">
+                <input class="todo-input" type="text" [(ngModel)]="newToDoTitle" placeholder="Add new task..." (keyup.enter)="addTodoItem(todoId)">
               </label>
               <ol>
                 <li class="overview-img" *ngFor="let todo of notebook.todoList[todoId].list; index as todoEleId ">
-                  <div (mouseover)="hoverIdx = todoEleId;" >
-                  <input type="checkbox" [(ngModel)]="todo.checked" > {{todo.title}}
+                  <div class="todolist-div" (mouseover)="hoverIdx = todoEleId;" >
+                      <input type="checkbox" (click)="updateName(notebook)"[(ngModel)]="todo.checked" > 
+                      <label>{{todo.title}}</label>
                   </div>
                   <span (click)="removeTodoItem(todoId,todoEleId);" >
                   <button *ngIf="hoverIdx==todoEleId" title="Delete Notebook">

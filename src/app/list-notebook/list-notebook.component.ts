@@ -58,13 +58,20 @@ export class ListNotebookComponent implements OnInit {
     this.notebookService.updateNotebook(this.notebook)
       .subscribe(() => this.getNoteBook());
   }
-
+globalTodoLen=0;
   addTodo(): void{
     this.colorRandomVal = Math.floor(Math.random() * this.colors.length); 
-    this.noteLen = this.notebook.todoList.length+1;   
+    this.noteLen = this.notebook.todoList.length;
+    if(this.globalTodoLen<this.noteLen){
+      this.globalTodoLen=this.noteLen;
+      this.globalTodoLen++;    
+    }   
+    else{
+      this.globalTodoLen++;
+    }
     this.notebook.todoList.push({
-        id: this.noteLen,
-        name: 'My Todo '+this.noteLen,    
+        id: this.globalTodoLen,
+        name: 'My Todo '+this.globalTodoLen,    
         color: this.colors[this.colorRandomVal].value,
         list:[{title:'this is a first todo',
                 checked:true}],
@@ -81,6 +88,12 @@ export class ListNotebookComponent implements OnInit {
   delNode;
   deleteNote(noteId:number): void{
     this.notebook.noteList[noteId-1]=" ";    
+    this.notebookService.updateNotebook(this.notebook)
+      .subscribe(() => this.goBack());
+  }
+  currentTodo;
+  deleteTodo(todoId:number): void{
+    this.currentTodo = this.notebook.todoList[todoId-1] = " ";
     this.notebookService.updateNotebook(this.notebook)
       .subscribe(() => this.goBack());
   }

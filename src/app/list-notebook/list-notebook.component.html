@@ -70,20 +70,53 @@
   </div>
   
   <div *ngIf="notebook.todoList">
-    <div class="desc" *ngFor="let todoList of notebook.todoList;"> 
-      <a [title]="todoList.name+' details'" routerLink="/todo/{{notebook.id}}/{{todoList.id}}"   >
+    <div class="desc" *ngFor="let todoList of notebook.todoList; index as tiId; "> 
+      <a  *ngIf="todoList.name" [title]="todoList.name+' details'" routerLink="/todo/{{notebook.id}}/{{todoList.id}}"   >
       <div class="col-md-4 col-xs-12 col-sm-6 col-lg-3 p-15">
-          <div class="notes-div" [ngStyle]="{'background-color': todoList.color}">
+          <div class="notes-div" [ngStyle]="{'background-color': todoList.color}" (mouseenter)="hoverIdx = todoList.id" (mouseleave)="hoverIdx = -1" >
             <h4>{{todoList.name}}</h4>   
-            <div *ngFor="let todo of todoList.list">
-                   <div class="todo-list" *ngIf="todo.title">
+            <div *ngFor="let todo of todoList.list;">
+                <div class="todo-list" *ngIf="todo.title">
                   <input type="checkbox" [(ngModel)]="todo.checked" name="checkbox">
-                  <label for="todo">{{todo.title}}</label>  
+                  <label for="todo">{{todo.title}}--{{todo.checked}}</label>  
                 </div>
-            </div>     
+                
+            </div>
+            <div class="overview-img" [ngClass]="{ 'overlay-icon': true, 'hide': hoverIdx !== todoList.id }">
+                <div>
+                  <button (click)="openModal(template1);" title="Delete Notebook">
+                    <img src="https://image.flaticon.com/icons/svg/1345/1345925.svg"/>
+                  </button>
+                  <div class="clr-div"></div>
+                  <button class="nb-info" (click)="toggle(todo.id)" title="Info">
+                    <img src="https://image.flaticon.com/icons/svg/1783/1783316.svg"/>
+                  </button>
+                </div>
+            </div>   
           </div>
+          
       </div>
       </a>
+      <ng-template #template1>
+            
+      <!-- <div class="modal-header modal-sm">
+        
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> -->
+      <div class="modal-body modal-sm">
+          <h6>Are you sure, you want to delete {{todoList.name}}?</h6>
+          <div class="buttons-section">
+            <div class="cnl-btn">
+                <button type="button" class="btn" (click)="modalRef.hide()" >Cancel</button>
+            </div>
+            <div class="del-btn">
+                <button type="button" class="btn" (click)="deleteTodo(todoList.id);modalRef.hide()" >Delete</button>
+            </div>
+          </div>
+      </div>
+    </ng-template>
     </div>  
   </div>
 </div>

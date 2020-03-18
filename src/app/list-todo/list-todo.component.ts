@@ -32,7 +32,8 @@ export class ListTodoComponent implements OnInit {
         note => this.notebook = note
       );
     this.todoId = id2-1;
-    // console.log(this.todoId)
+    
+    console.log(this.todoId);
   } 
 
   goBack() : void {
@@ -41,7 +42,7 @@ export class ListTodoComponent implements OnInit {
   
   addTodoItem(id:number) {
    this.todoLen = id;   
-  //  console.log("todo this.notebook - "+this.notebook.todoList[this.todoLen]);
+  console.log("todo this.notebook - "+this.todoLen);
     this.notebook.todoList[this.todoLen].list.push({
         title:this.newToDoTitle,
         checked:false
@@ -60,10 +61,17 @@ export class ListTodoComponent implements OnInit {
    this.newToDoTitle = '';
   }
 
-   save(): void {
+  updateName(notebook: NotebookData): void{
+    console.log(notebook);
+    this.notebookService.updateNotebook(notebook)
+      .subscribe();
+  }
+
+  save(): void {
     this.notebookService.updateNotebook(this.notebook)
       .subscribe(() => this.goBack());
   }
+
 
 
 }
