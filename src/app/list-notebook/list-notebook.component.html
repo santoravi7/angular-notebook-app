@@ -22,30 +22,45 @@
    </div>
   </div>
   <div *ngIf="notebook.noteList">
+    
     <div class="desc m-10" *ngFor="let note of notebook.noteList;"> 
-      <a *ngIf="note.name" [title]="note.name+' details'" routerLink="/note/{{notebook.id}}/{{note.id}}"   >
+        <div [ngClass]="{'overlay-div':note.id == clickIdx}">
+          <div *ngIf="show && note.id == clickIdx" class="settings-tab">
+              <button type="button" class="close pull-right" aria-label="Close" (click)="toggle(note.id)">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div>
+                <h4 class="nb-header">Notebook Info</h4>
+                <div class="nb-info-wrapper">
+
+                
+                </div>
+                
+              </div>
+          </div>
+        </div>
         <div class="col-md-4 col-xs-12 col-sm-6 col-lg-3 p-15">
+            <a *ngIf="note.name" [title]="note.name+' details'" routerLink="/note/{{notebook.id}}/{{note.id}}"   >
             <div class="notes-div" [ngStyle]="{'background-color': note.color}" (mouseenter)="hoverIdx = note.id" (mouseleave)="hoverIdx = -1" >
               <div >
                     <h4>{{note.name}}</h4>   
                     <div class="intro">{{note.description}}</div>
-              </div>
-              <div class="overview-img" [ngClass]="{ 'overlay-icon': true, 'hide': hoverIdx !== note.id }">
-                <div>
-                  <button (click)="openModal(template);" title="Delete Notebook">
-                    <img src="https://image.flaticon.com/icons/svg/1345/1345925.svg"/>
-                  </button>
-                  <div class="clr-div"></div>
-                  <button class="nb-info" (click)="toggle(notebook.id)" title="Info">
-                    <img src="https://image.flaticon.com/icons/svg/1783/1783316.svg"/>
-                  </button>
-                </div>
-                
               </div>       
             </div>
+            </a>  
+            <span class="overview-img" [ngClass]="{ 'overlay-icon': true, 'hide': hoverIdx !== note.id }">
+                <button (click)="openModal(template);" title="Delete Note">
+                    <img src="https://image.flaticon.com/icons/svg/1345/1345925.svg"/>
+                </button>
+                <div class="clr-div"></div>
+                <button class="nb-info" (click)="toggle(note.id)" title="Info">
+                    <img src="https://image.flaticon.com/icons/svg/1783/1783316.svg"/>
+                </button>
+
+            </span>
         </div>
-      </a>      
- 
+          
+
     <ng-template #template>
             
       <!-- <div class="modal-header modal-sm">

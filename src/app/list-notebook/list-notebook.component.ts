@@ -17,7 +17,7 @@ export class ListNotebookComponent implements OnInit {
   notebook:NotebookData;
   notes : Notedata[] = [];
   modalRef: BsModalRef;
-  hoverIdx = -1;
+  hoverIdx = -1;show:boolean=false;clickIdx=-1;
   constructor(
     private route: ActivatedRoute,
     private notebookService: NotebookService,
@@ -106,6 +106,21 @@ globalTodoLen=0;
     this.notebookService.updateNotebook(this.notebook)
       .subscribe(() => this.goBack());
   }
+
+  toggle(notebookId:number) {
+    console.log("toggle - "+notebookId)
+    if(this.clickIdx===notebookId)
+    {
+      this.clickIdx = -1;
+      this.show = false;
+    }
+    else  
+    {
+      this.show = true;
+      this.clickIdx=notebookId;
+    }
+  }
+
 
   colors = [ 
         {value : '#CD5C5C'},

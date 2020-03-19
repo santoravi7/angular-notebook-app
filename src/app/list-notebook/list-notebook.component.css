@@ -166,6 +166,7 @@
   text-align: center;
   overflow: hidden;
   padding-top: 85px;
+  z-index: 2;
  
 }
 
@@ -185,6 +186,9 @@
   /* top: 60px !important; */
   /* right: 10px; */
   float: right;
+  width: 65px;
+  height: 40px;
+  z-index: 2;
 }
 
 .clr-div{
@@ -236,4 +240,29 @@
   width: 50%;
   display: inline-block;
   text-align: center;
+}
+
+
+.settings-tab{
+  position: absolute;
+  right: 0;
+  height: 100%;
+  top: 0;
+  background: #fff;
+  box-shadow: -1px 2px 12px 0px #848484;
+  width: 450px;
+  z-index: 10;
+  padding: 20px;
+}
+
+.settings-tab .close{
+  font-size: 35px;
+  font-family: lato;
+  font-weight: 400;
+}
+
+.settings-tab .set-bg{
+  width: 160px;
+  display: inline-block;
+  margin-top: 35px;
 }
