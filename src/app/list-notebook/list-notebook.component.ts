@@ -5,6 +5,7 @@ import { NotebookData } from '../notebook-data';
 import { NotebookService } from '../notebook.service';
 import { Pipe } from '@angular/core';
 import { Notedata } from '../notedata';
+import { TodolistData } from '../todolist-data';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
@@ -18,7 +19,7 @@ export class ListNotebookComponent implements OnInit {
   notebooks:NotebookData[];
   notes : Notedata[] = [];
   modalRef: BsModalRef;
-  hoverIdx = -1;show:boolean=false;clickIdx=-1;
+  hoverIdx = -1;hoverTodoIdx=-1;show:boolean=false;clickIdx=-1;
   constructor(
     private route: ActivatedRoute,
     private notebookService: NotebookService,
@@ -105,7 +106,7 @@ globalTodoLen=0;
   }
   noteListLen;
   copyToNB(notebook:NotebookData, note:Notedata): void{
-    console.log("copyToNB = "+notebook.id);
+    console.log("copyToNB = "+note.id);
      this.colorRandomVal = Math.floor(Math.random() * this.colors.length);
     this.noteListLen = notebook.noteList.length;
     notebook.noteList.push({
@@ -115,8 +116,7 @@ globalTodoLen=0;
        color: this.colors[this.colorRandomVal].value,
         created: new Date()
     });
-
-    this.notebookService.updateNotebook(notebook)
+   this.notebookService.updateNotebook(notebook)
       .subscribe(() => this.goBack());
 
   }
@@ -131,7 +131,7 @@ globalTodoLen=0;
   }
 
   toggle(notebookId:number) {
-    console.log("toggle - "+notebookId)
+    
     if(this.clickIdx===notebookId)
     {
       this.clickIdx = -1;
@@ -144,6 +144,22 @@ globalTodoLen=0;
     }
   }
 
+
+   copyTodoToNB(notebook:NotebookData,todo:TodolistData): void{
+    console.log("copyToNB = "+todo);
+     this.colorRandomVal = Math.floor(Math.random() * this.colors.length);
+    this.noteListLen = notebook.todoList.length;
+    notebook.todoList.push({
+      id:this.noteListLen+1,
+      name:todo.name,
+      color: this.colors[this.colorRandomVal].value,
+      list:todo.list,
+      created: new Date()
+    })
+    this.notebookService.updateNotebook(notebook)
+      .subscribe(() => this.goBack());
+  }
+  
 
   colors = [ 
         {value : '#CD5C5C'},
