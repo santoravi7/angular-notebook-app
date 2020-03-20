@@ -105,7 +105,7 @@ globalTodoLen=0;
   }
   noteListLen;
   copyToNB(notebook:NotebookData, note:Notedata): void{
-    console.log("copyToNB = "+notebook);
+    console.log("copyToNB = "+notebook.id);
      this.colorRandomVal = Math.floor(Math.random() * this.colors.length);
     this.noteListLen = notebook.noteList.length;
     notebook.noteList.push({
@@ -115,6 +115,10 @@ globalTodoLen=0;
        color: this.colors[this.colorRandomVal].value,
         created: new Date()
     });
+
+    this.notebookService.updateNotebook(notebook)
+      .subscribe(() => this.goBack());
+
   }
 
   goBack() : void {
