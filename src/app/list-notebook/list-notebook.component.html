@@ -33,22 +33,22 @@
                 <h4 class="nb-header">{{note.name}} Info</h4>
                 <div class="nb-info-set">
                   <img src="https://image.flaticon.com/icons/svg/660/660716.svg"/>
-                  <h4 class="nb-header txt-left">{{note.description.length}} character<span *ngIf="note.description.length>1">s</span></h4>
-                  <div class="clr-div"></div>
+                  <h4 class="cpy-txt txt-left">{{note.description.length}} character<span *ngIf="note.description.length>1">s</span></h4>
+                  <div class="clr-div h10"></div>
                   <img src="https://image.flaticon.com/icons/svg/660/660583.svg"/>
-                  <h4 class="nb-header txt-left">{{notebook.name}}</h4>
-                  <div class="clr-div"></div>
+                  <h4 class="cpy-txt txt-left">{{notebook.name}}</h4>
+                  <div class="clr-div h10"></div>
                   <img src="https://image.flaticon.com/icons/svg/660/660707.svg"/>
-                  <h4 class="nb-header txt-left">{{ note.created | date:'dd MMM yyyy' }}</h4>
+                  <h4 class="cpy-txt txt-left">{{ note.created | date:'dd MMM yyyy' }}</h4>
                 </div>
                 <div class="clr-div"></div>
                 <div class="nb-info-wrapper">
-                    <div>Copy to :</div>
+                    <h4 class="nb-header">Select Notebook</h4>
+                    <h4 class="cpy-txt">Copy this note card from '{{notebook.name}}' to another notebook</h4>
                     <div *ngFor="let nb of notebooks">       
                       <div *ngIf="nb.id !== notebook.id" class="col-md-4 col-xs-5 col-sm-4 col-lg-5 notebook-div" (click)="copyToNB(nb,note);">
                         <div class="notesimg-div"[style.background]="'url(' + nb.img + ')'"></div>
                          <h4 class="nb-header">{{nb.name}}</h4> 
-          
                       </div>
                     </div>
                 </div>
