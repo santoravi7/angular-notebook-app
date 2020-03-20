@@ -16,25 +16,29 @@ export class InMemoryDataService implements InMemoryDbService {
             id:1,
             name: 'Note 1',    
             description: 'this is my first note description. I can add notes and to-do list here and save it for my future reference!!!this is my first note description. I can add notes and to-do list here and save it for my future reference!!!this is my first note description. I can add notes and to-do list here and save it for my future reference!!!this is my first note description. I can add notes and to-do list here and save it for my future reference!!!',
-            color: '#602379'
+            color: '#602379',
+            created: 'Tue Mar 6 2020 23:34:12'
           },
           {
             id:2,
             name: 'Note 2',    
             description: 'A great phone with one of the best cameras',
-            color: '#29b38d'
+            color: '#29b38d',
+            created: 'Tue Mar 6 2020 23:34:12'
           },
           {
             id:3,
             name: 'Note 3',    
             description: 'this is my first note description. I can add notes and to-do list here and save it for my future reference!!!this is my first note description. I can add notes and to-do list here and save it for my future reference!!!this is my first note description. I can add notes and to-do list here and save it for my future reference!!!this is my first note description. I can add notes and to-do list here and save it for my future reference!!!',
-            color: '#602379'
+            color: '#602379',
+            created: 'Tue Mar 6 2020 23:34:12'
           },
           {
             id:4,
             name: 'Note 4',    
             description: 'thid is a sample description',
-            color: '#f3785c'
+            color: '#f3785c',
+            created: 'Tue Mar 6 2020 23:34:12'
           }
         ],
         todoList:[
@@ -47,7 +51,8 @@ export class InMemoryDataService implements InMemoryDbService {
                 title:'this is a first todo',
                 checked:true
               }
-            ]
+            ],
+            created: 'Tue Mar 6 2020 23:34:12'
           }
         ],
         img: 'https://image.shutterstock.com/image-photo/mountains-during-sunset-beautiful-natural-260nw-407021107.jpg',
@@ -61,19 +66,22 @@ export class InMemoryDataService implements InMemoryDbService {
             id:1,
             name: 'Note 1',    
             description: 'this is my first note description. I can add notes and to-do list here and save it for my future reference!!!',
-            color: '#602379'
+            color: '#602379',
+            created: 'Tue Mar 6 2020 23:34:12'
           },
           {
             id:2,
             name: 'Note 2',    
             description: 'A great phone with one of the best cameras',
-            color: '#29b38d'
+            color: '#29b38d',
+            created: 'Tue Mar 6 2020 23:34:12'
           },
           {
             id:3,
             name: 'Note 3',    
             description: '',
-            color: '#f3785c'
+            color: '#f3785c',
+            created: 'Tue Mar 6 2020 23:34:12'
           }
         ],
         todoList:[],
