@@ -266,3 +266,28 @@
   display: inline-block;
   margin-top: 35px;
 }
+
+.notesimg-div{
+  margin-top: 20px; 
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 12px !important;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.notebook-div{
+  padding:15px 5px;
+  margin: 0px 10px; 
+  display:inline-block;
+}
+
+.nb-header{
+  font-family: lato;
+  font-size: 15px;
+  color: #000;
+  text-align: center;
+  font-weight: 700;
+}

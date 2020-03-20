@@ -30,10 +30,16 @@
                 <span aria-hidden="true">&times;</span>
               </button>
               <div>
-                <h4 class="nb-header">Notebook Info</h4>
+                <h4 class="nb-header">Note Info</h4>
                 <div class="nb-info-wrapper">
-
-                
+                    <div>Copy to :</div>
+                    <div *ngFor="let notebook of notebooks">
+                      <div class="col-md-4 col-xs-5 col-sm-4 col-lg-4 notebook-div" (click)="copyToNB(notebook,note);">
+                        <div class="notesimg-div"[style.background]="'url(' + notebook.img + ')'"></div>
+                         <h4 class="nb-header">{{notebook.name}}</h4> 
+          
+                      </div>
+                    </div>
                 </div>
                 
               </div>

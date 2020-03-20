@@ -15,6 +15,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 })
 export class ListNotebookComponent implements OnInit {
   notebook:NotebookData;
+  notebooks:NotebookData[];
   notes : Notedata[] = [];
   modalRef: BsModalRef;
   hoverIdx = -1;show:boolean=false;clickIdx=-1;
@@ -27,12 +28,17 @@ export class ListNotebookComponent implements OnInit {
 
   ngOnInit(): void {
     this.getNoteBook();
+    this.getNoteBooks();
   }
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
 
+  getNoteBooks(): void{
+    this.notebookService.getNotebooks()
+        .subscribe(notes => this.notebooks = notes);
+  }
 
   getNoteBook(): void {
     const id = +this.route.snapshot.paramMap.get('id');
@@ -96,6 +102,19 @@ globalTodoLen=0;
     this.currentTodo = this.notebook.todoList[todoId-1] = " ";
     this.notebookService.updateNotebook(this.notebook)
       .subscribe(() => this.goBack());
+  }
+  noteListLen;
+  copyToNB(notebook:NotebookData, note:Notedata): void{
+    console.log("copyToNB = "+notebook);
+     this.colorRandomVal = Math.floor(Math.random() * this.colors.length);
+    this.noteListLen = notebook.noteList.length;
+    notebook.noteList.push({
+      id:this.noteListLen+1,
+      name:note.name,
+      description: note.description,
+       color: this.colors[this.colorRandomVal].value,
+        created: new Date()
+    });
   }
 
   goBack() : void {
