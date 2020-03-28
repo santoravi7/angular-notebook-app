@@ -188,7 +188,7 @@
 .images-set-tab{
   overflow: scroll;
   overflow-x: hidden;
-  height: 320px;
+  height: 250px;
 }
 
 .images-set-tab .set-bg{
@@ -228,4 +228,42 @@
   float: left;
   margin-right: 20px;
   margin-top: 7px;
+}
+
+@media only screen and (max-width: 778px) {
+  .settings-tab .set-bg {
+    width: 120px;
+    display: inline-block;
+    margin-top: 35px;
+    height: 150px;
+  }
+  .nb-info-set .note-heading {
+    font-size: 16px;
+    text-align: left;
+  }
+}
+
+
+.fake-scroll{
+  overflow-y: scroll; 
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #585858;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(0, 0, 0);
 }
