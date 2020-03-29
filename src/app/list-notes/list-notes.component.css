@@ -39,6 +39,7 @@ textarea{
   color: #fff;
   padding: 30px;  
   line-height: 1.8;
+  padding-top:0px;
 }
 
 .notes-textarea{
@@ -48,6 +49,33 @@ textarea{
 .m-10{
   margin-top:25px;
 }
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c3c3c3;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(0, 0, 0);
+}
+
+@media only screen and (max-width:600px){
+  .notes-textarea {
+    padding: 0px !important;
+  }
+} 
 
 .back-btn{
   width: 50px;
