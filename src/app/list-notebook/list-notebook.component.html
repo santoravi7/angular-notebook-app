@@ -75,6 +75,11 @@
                 </button>
 
             </span>
+            <a [title]="note.name+' details'" routerLink="/note/{{notebook.id}}/{{note.id}}" >
+              <div id="container">
+                <h4 class="nb-header" style="margin-left: -45px;margin-left: -45px;">{{note.name}}</h4> 
+              </div>  
+            </a>
         </div>
           
 
