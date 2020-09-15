@@ -29,6 +29,9 @@
   .overlay-icon {    
     width: 150px !important;
     height: 150px !important;
+    padding-top: 35px !important;
+    top: 20px !important;
+    left: 0px !important;
   }
   .intro{
     font-size: 10px !important;
@@ -39,9 +42,12 @@
     line-height: 1.8;
   }
   .overview-img button{
-    width: 45px !important;
-    height: 20px !important;
+    width: 25px !important;
+    height: 10px !important;
     z-index: 2 !important;
+  }
+  .p-15{
+    padding:0px !important;
   }
 }
 
