@@ -30,6 +30,19 @@
     width: 150px !important;
     height: 150px !important;
   }
+  .intro{
+    font-size: 10px !important;
+    width: 120px !important;
+    height: 85px !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical;
+    line-height: 1.8;
+  }
+  .overview-img button{
+    width: 45px !important;
+    height: 20px !important;
+    z-index: 2 !important;
+  }
 }
 
 .back-btn{
