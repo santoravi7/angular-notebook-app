@@ -46,6 +46,9 @@
     height: 10px !important;
     z-index: 2 !important;
   }
+  .overview-img button img{
+    width: 20px !important;
+  }
   .p-15{
     padding:0px !important;
   }
