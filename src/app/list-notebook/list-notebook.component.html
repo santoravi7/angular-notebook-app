@@ -56,7 +56,7 @@
               </div>
           </div>
         </div>
-        <div class="col-md-4 col-xs-12 col-sm-6 col-lg-3 p-15"(mouseenter)="hoverIdx = note.id" (mouseleave)="hoverIdx = -1" >
+        <div class="col-md-4 col-xs-6 col-sm-6 col-lg-3 p-15"(mouseenter)="hoverIdx = note.id" (mouseleave)="hoverIdx = -1" >
             <a *ngIf="note.name" [title]="note.name+' details'" routerLink="/note/{{notebook.id}}/{{note.id}}"   >
             <div class="notes-div" [ngStyle]="{'background-color': note.color}">
               <div >
