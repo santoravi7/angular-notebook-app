@@ -19,6 +19,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalContentComponent } from './app.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ListTodoComponent } from './list-todo/list-todo.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   imports:      [ 
@@ -40,7 +41,8 @@ import { ListTodoComponent } from './list-todo/list-todo.component';
     ListNotebookComponent, 
     MessageComponent, ListNotesComponent,
     ModalContentComponent,
-    ListTodoComponent
+    ListTodoComponent,
+    PageNotFoundComponent
   ],
    entryComponents: [
     ModalContentComponent,
