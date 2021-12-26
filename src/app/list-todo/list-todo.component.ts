@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { NotebookData } from '../notebook-data';
 import { NotebookService } from '../notebook.service';
@@ -16,7 +16,9 @@ export class ListTodoComponent implements OnInit {
   todoId;note;todoLen;newToDoTitle;
   hoverIdx = -1;
   public show:boolean = false;
-  constructor( private route: ActivatedRoute,
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
     private notebookService: NotebookService,
     private location: Location
   ) { }
@@ -29,28 +31,29 @@ export class ListTodoComponent implements OnInit {
     
     const id1 = parseInt(this.route.snapshot.paramMap.get('notebookId'));
     const id2 = parseInt(this.route.snapshot.paramMap.get('id'));
-    console.log("Notebook id - final id - "+id1);
     this.notebookService.getNote(id1)
       .subscribe(
         note => this.notebook = note
       );
     this.todoId=id2-1;
-    console.log("Note id - "+this.todoId)
   } 
 
   goBack() : void {
-    this.location.back();
+    this.location.back()
   }
   
   addTodoItem(id:number) {
    this.todoLen = id;   
-  console.log("todo this.notebook - "+this.todoLen);
     this.notebook.todoList[this.todoLen].list.push({
         title:this.newToDoTitle,
         checked:false
     })
-    this.notebookService.updateNotebook(this.notebook)
-      .subscribe(() => this.getNote());
+    console.log("Activated route - "+this.route);
+    this.router.navigate(['todo/'+id,{'notebookId':this.notebook.id}], {relativeTo:this.route});
+    this.notebookService.updateNotebook(this.notebook).subscribe({
+      next:()=>note => this.notebook = note
+   })
+      
    this.newToDoTitle = '';
   }
 
@@ -63,8 +66,7 @@ export class ListTodoComponent implements OnInit {
   }
 
   removeTodoItem(id:number,id2:number) {
-   this.todoLen = id;   
-    console.log("todo this.notebook - "+id2);
+   this.todoLen = id; 
     this.notebook.todoList[this.todoLen].list.splice(id2,1);
     this.notebookService.updateNotebook(this.notebook)
       .subscribe(() => this.getNote());

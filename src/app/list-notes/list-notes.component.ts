@@ -38,7 +38,7 @@ export class ListNotesComponent implements OnInit {
   } 
 
   goBack() : void {
-    this.router.navigate([''], {relativeTo:this.route});
+    this.location.back()
   }
 
    save(): void {

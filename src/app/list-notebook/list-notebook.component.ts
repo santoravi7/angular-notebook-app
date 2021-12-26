@@ -29,8 +29,6 @@ export class ListNotebookComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    let id=parseInt(this.route.snapshot.paramMap.get('id1'));
-    console.log("Id in OnInit - "+id+1);
     this.getNoteBook();
     this.getAllNoteBooks();
   }
@@ -40,8 +38,10 @@ export class ListNotebookComponent implements OnInit {
   }
 
   notesView(notes):void{
-    console.log("Active route : "+this.route+" notes id - "+notes.id);
     this.router.navigate(['note/'+notes.id,{'notebookId':this.notebook.id}], {relativeTo:this.route});
+  }
+  todoView(todo):void{
+    this.router.navigate(['todo/'+todo.id,{'notebookId':this.notebook.id}], {relativeTo:this.route});
   }
 
   getAllNoteBooks(): void{
@@ -51,7 +51,6 @@ export class ListNotebookComponent implements OnInit {
 
   getNoteBook(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    console.log("Get NOTE BOOK Function id - "+id)
     this.notebookService.getNoteBook(id)
       .subscribe(
         notebook => this.notebook = notebook
@@ -72,9 +71,15 @@ export class ListNotebookComponent implements OnInit {
         created: new Date()
       })
     this.notebookService.updateNotebook(this.notebook)
-      .subscribe(() => this.getNoteBook());
+      // .subscribe(() => this.getNoteBook());
+      .subscribe({
+        complete: () => {
+          this.router.navigate(['note/'+this.noteLen,{'notebookId':this.notebook.id}], {relativeTo:this.route});
+        },
+        next:()=>note => this.notebook = note
+     })
   }
-globalTodoLen=0;
+  globalTodoLen=0;
 
   addTodo(): void{
     this.colorRandomVal = Math.floor(Math.random() * this.colors.length); 
@@ -95,7 +100,12 @@ globalTodoLen=0;
         created: new Date()
       })
     this.notebookService.updateNotebook(this.notebook)
-      .subscribe(() => this.getNoteBook());
+      .subscribe({
+        complete: () => {
+          this.router.navigate(['todo/'+this.globalTodoLen,{'notebookId':this.notebook.id}], {relativeTo:this.route});
+        },
+        next:()=>note => this.notebook = note
+     })
   }
 
   updateName(): void{
@@ -131,8 +141,8 @@ globalTodoLen=0;
 
   }
 
-  goBack(notebook) : void {
-    this.router.navigate([''], {relativeTo:this.route});
+  goBack() : void {
+    this.location.back()
   }
 
   save(): void {

@@ -55,7 +55,7 @@ export class InMemoryDataService implements InMemoryDbService {
             created: 'Tue Mar 6 2020 23:34:12'
           }
         ],
-        img: 'https://image.shutterstock.com/image-photo/mountains-during-sunset-beautiful-natural-260nw-407021107.jpg',
+        img: 'https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/img1.jpg',
         created: 'Tue Mar 6 2020 23:34:12'
       },
       {
@@ -85,7 +85,7 @@ export class InMemoryDataService implements InMemoryDbService {
           }
         ],
         todoList:[],
-        img: 'https://picjumbo.com/wp-content/uploads/free-stock-images-1080x720.jpg',
+        img: 'https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/img2.jpg',
         created: 'Tue Mar 7 2020 03:34:12'
       },
       {
@@ -93,7 +93,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'Notebook 3',    
         noteList: [],
         todoList:[],
-        img: 'https://fscomps.fotosearch.com/compc/CSP/CSP241/little-lion-cub-head-animal-painting-stock-illustration__k30087417.jpg',
+        img: 'https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/img3.jpg',
         created: 'Tue Mar 10 2020 23:34:12'
       }
     ];

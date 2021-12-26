@@ -39,7 +39,7 @@ export class NotebookService {
   }
 
   getNote(id: number): Observable<NotebookData> {
-    console.log("note id in Get Note = "+id)
+    // console.log("note id in Get Note = "+id)
     const url = `${this.notebooksUrl}/${id}`;
     return this.http.get<NotebookData>(url).pipe(
       tap(_ => this.log(`fetched note id=${id}`)),
