@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute,Router } from '@angular/router'
 import { Location } from '@angular/common';
 import { NotebookData } from '../notebook-data';
 import { NotebookService } from '../notebook.service';
@@ -21,6 +21,7 @@ export class ListNotebookComponent implements OnInit {
   modalRef: BsModalRef;
   hoverIdx = -1;hoverTodoIdx=-1;show:boolean=false;clickIdx=-1;
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private notebookService: NotebookService,
     private location: Location,
@@ -28,21 +29,29 @@ export class ListNotebookComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    let id=parseInt(this.route.snapshot.paramMap.get('id1'));
+    console.log("Id in OnInit - "+id+1);
     this.getNoteBook();
-    this.getNoteBooks();
+    this.getAllNoteBooks();
   }
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
 
-  getNoteBooks(): void{
-    this.notebookService.getNotebooks()
+  notesView(notes):void{
+    console.log("Active route : "+this.route+" notes id - "+notes.id);
+    this.router.navigate(['note/'+notes.id,{'notebookId':this.notebook.id}], {relativeTo:this.route});
+  }
+
+  getAllNoteBooks(): void{
+    this.notebookService.getAllNotebooks()
         .subscribe(notes => this.notebooks = notes);
   }
 
   getNoteBook(): void {
     const id = +this.route.snapshot.paramMap.get('id');
+    console.log("Get NOTE BOOK Function id - "+id)
     this.notebookService.getNoteBook(id)
       .subscribe(
         notebook => this.notebook = notebook
@@ -66,6 +75,7 @@ export class ListNotebookComponent implements OnInit {
       .subscribe(() => this.getNoteBook());
   }
 globalTodoLen=0;
+
   addTodo(): void{
     this.colorRandomVal = Math.floor(Math.random() * this.colors.length); 
     this.noteLen = this.notebook.todoList.length;
@@ -121,8 +131,8 @@ globalTodoLen=0;
 
   }
 
-  goBack() : void {
-    this.location.back();
+  goBack(notebook) : void {
+    this.router.navigate([''], {relativeTo:this.route});
   }
 
   save(): void {

@@ -23,17 +23,19 @@ export class ListTodoComponent implements OnInit {
 
   ngOnInit(): void {
     this.getNote();
+    let id=parseInt(this.route.snapshot.paramMap.get('id1'));
   }
   getNote(): void {
-    const id1 = +this.route.snapshot.paramMap.get('id1');
-    const id2 = +this.route.snapshot.paramMap.get('id2');
+    
+    const id1 = parseInt(this.route.snapshot.paramMap.get('notebookId'));
+    const id2 = parseInt(this.route.snapshot.paramMap.get('id'));
+    console.log("Notebook id - final id - "+id1);
     this.notebookService.getNote(id1)
       .subscribe(
         note => this.notebook = note
       );
-    this.todoId = id2-1;
-    
-    console.log(this.todoId);
+    this.todoId=id2-1;
+    console.log("Note id - "+this.todoId)
   } 
 
   goBack() : void {

@@ -4,6 +4,9 @@ import { NotebookData } from '../notebook-data';
 import { NotebookService } from '../notebook.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+
+import { Router, ActivatedRoute } from '@angular/router';
+
 import {
   trigger,
   state,
@@ -27,7 +30,8 @@ export class NotebookComponent implements OnInit {
   modalRef: BsModalRef;
 
   constructor(private notebookService: NotebookService,
-  private modalService: BsModalService) { }
+  private modalService: BsModalService, private router:Router,
+  private route:ActivatedRoute) { }
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
@@ -47,11 +51,15 @@ export class NotebookComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getNotebooks();
+    this.getAllNotebooks();
   }
-  getNotebooks(): void {
-    this.notebookService.getNotebooks()
+  getAllNotebooks(): void {
+    this.notebookService.getAllNotebooks()
         .subscribe(notes => this.notebooks = notes);
+  }
+
+  notebooksView(notebook):void{
+    this.router.navigate([notebook.id], {relativeTo:this.route});
   }
 
   addNotebook(name: string, noteList: any[], todoList: any[], img: string,created: Date): void {

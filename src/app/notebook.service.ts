@@ -22,11 +22,11 @@ export class NotebookService {
   constructor(private http : HttpClient,
   private messageService: MessageService) { }
 
-  getNotebooks (): Observable<NotebookData[]> {
+  getAllNotebooks (): Observable<NotebookData[]> {
     return this.http.get<NotebookData[]>(this.notebooksUrl)
       .pipe(
         tap(_ => this.log('fetched notes')),
-        catchError(this.handleError<NotebookData[]>('getNotebooks', []))
+        catchError(this.handleError<NotebookData[]>('getAllNotebooks', []))
       );
   }
 
@@ -39,6 +39,7 @@ export class NotebookService {
   }
 
   getNote(id: number): Observable<NotebookData> {
+    console.log("note id in Get Note = "+id)
     const url = `${this.notebooksUrl}/${id}`;
     return this.http.get<NotebookData>(url).pipe(
       tap(_ => this.log(`fetched note id=${id}`)),

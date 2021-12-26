@@ -9,10 +9,14 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 
 const routes: Routes = [
-  { path: '', component: NotebookComponent},
-  { path: 'detail/:id', component: ListNotebookComponent },
-  { path: 'note/:id1/:id2', component: ListNotesComponent},
-  { path: 'todo/:id1/:id2', component: ListTodoComponent},
+  { path: '', redirectTo:'/notebooks',pathMatch:'full'},
+  { path: 'notebooks', component: NotebookComponent},
+  { path: 'notebooks/:id', component: ListNotebookComponent},
+  // children:[
+    { path: 'notebooks/:id/note/:id', component: ListNotesComponent},
+    { path: 'notebooks/:id/todo/:id', component: ListTodoComponent},
+  // ]  
+// },
   { path:"**", component:PageNotFoundComponent}
 ];
 
@@ -21,3 +25,11 @@ const routes: Routes = [
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {}
+
+export const routingComponents = [
+  NotebookComponent,
+  ListNotebookComponent,
+  ListNotesComponent,
+  ListTodoComponent,
+  PageNotFoundComponent
+]
