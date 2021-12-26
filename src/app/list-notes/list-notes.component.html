@@ -1,20 +1,30 @@
 <div class="container">
   <div class="">
-        <button (click)="goBack();" class="back-btn" title="Add a Todo List"><img src="https://image.flaticon.com/icons/svg/2223/2223615.svg"/>
-        </button>
-</div>
-    <div>
-      <div class="col-md-12 col-xs-12 m-10">
-        <div *ngIf="notebook" class="notes-textarea" [ngStyle]="{'background-color': notebook.noteList[noteId].color}">
-          <input class="note-heading" [(ngModel)]='notebook.noteList[noteId].name'/>
-          <div class="desc">
-              <textarea [(ngModel)]='notebook.noteList[noteId].description' [ngStyle]="{'background-color': notebook.noteList[noteId].color}"></textarea>
-              <div class="center">
-                <button class="save-btn" (click)="save()">Save</button>
-              </div>
+    <button (click)="goBack()" class="back-btn" title="Add a Todo List">
+      <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/arrow.png" />
+    </button>
+  </div>
+  <div>
+    <div class="col-md-12 col-xs-12 m-10">
+      <div
+        *ngIf="notebook"
+        class="notes-textarea"
+        [ngStyle]="{ 'background-color': notebook.noteList[noteId].color }"
+      >
+        <input
+          class="note-heading"
+          [(ngModel)]="notebook.noteList[noteId].name"
+        />
+        <div class="desc">
+          <textarea
+            [(ngModel)]="notebook.noteList[noteId].description"
+            [ngStyle]="{ 'background-color': notebook.noteList[noteId].color }"
+          ></textarea>
+          <div class="center">
+            <button class="save-btn" (click)="save()">Save</button>
           </div>
-          
         </div>
       </div>
     </div>
+  </div>
 </div>
