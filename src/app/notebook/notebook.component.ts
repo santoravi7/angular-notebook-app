@@ -73,9 +73,15 @@ export class NotebookComponent implements OnInit {
     created = new Date();
     if (!name) { return; }
     this.notebookService.addNotebook({ name,noteList,todoList,img,created } as NotebookData)
-      .subscribe(note => {
-        this.notebooks.push(note);
-      });
+      // .subscribe(note => {
+      //   this.notebooks.push(note);
+      // });
+      .subscribe({
+        complete: () => {
+          this.router.navigate([this.noteLen], {relativeTo:this.route});
+        },
+        next:()=>note => this.notebooks.push(note)
+     });
   }
 
   deleteNotebook(notebook: NotebookData): void {

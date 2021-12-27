@@ -1,9 +1,11 @@
-<div class="">
+<div class="list-nb-comp">
+  <div class="row">
+<div class="col-md-6 list-navbar">
   <button (click)="goBack()" class="back-btn" title="Go Back">
     <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/arrow.png" />
   </button>
 </div>
-<div class="actions-div">
+<div class="col-md-6 actions-div">
   <div class="notebook-edit-div">
     <!-- <input class="note-heading" (keyup.enter)="updateName()"[(ngModel)]='notebook?.name'/> -->
   </div>
@@ -16,7 +18,7 @@
     </button>
   </div>
 </div>
-
+</div>
 <div class="container">
   <div *ngIf="!notebook?.noteList?.length > 0 && !notebook?.todoList?.length > 0">
     <div class="quote-text">
@@ -287,4 +289,5 @@
       </ng-template>
     </div>
   </div>
+</div>
 </div>

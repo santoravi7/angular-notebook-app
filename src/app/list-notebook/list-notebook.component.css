@@ -1,3 +1,7 @@
+.list-nb-comp{
+  margin-top: 5%;
+}
+
 .notes-div{
   width: 220px !important;
   min-height: 220px !important; 
@@ -59,9 +63,8 @@
   height: 30px;
   border: none;
   background: none;
-  position: absolute;
-  top: 12px;
-  left: 135px;
+  margin-top: 30px;
+  margin-left: 10px;
 }
 
 .todo-wrapper{
@@ -85,15 +88,17 @@
 
 .todo-btn img, .back-btn img{
   width: 60%;
-  background: #fff;
+  /* background: #fff; */
   color: #fff;
 }
 
 .actions-div{
-  width: 58%;
-  position : absolute;
+  margin-top: 30px;
+  /* width: 58%;
+  float: left; */
+  /* position : absolute;
   top: 15px;
-  right: 15px;
+  right: 15px; */
 }
 
 .pull-right-div{

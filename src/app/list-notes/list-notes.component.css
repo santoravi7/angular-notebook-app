@@ -77,18 +77,23 @@ textarea{
   }
 } 
 
+.list-navbar{
+  margin-top: 8%;
+}
+
 .back-btn{
   width: 50px;
   height: 30px;
   border: none;
   background: none;
-  position: absolute;
+  margin-left: 10px;
+  /* position: absolute;
   top: 12px;
-  left: 135px;
+  left: 135px; */
 }
 
 .back-btn img{
   width: 60%;
-  background: #fff;
+  /* background: #fff; */
   color: #fff;
 }

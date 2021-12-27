@@ -16,7 +16,8 @@ app-navbar{
   justify-content: space-between;
   align-items: center;
   text-decoration: none !important;
-  z-index: 999;
+  z-index: 9;
+  position: fixed;
 }
 
 a, a:hover {
