@@ -58,7 +58,7 @@ export class ListNotebookComponent implements OnInit {
   } 
 
   colorRandomVal;
-  colorVal;noteLen;
+  colorVal;noteLen;words;
 
   addNote(): void{
     this.colorRandomVal = Math.floor(Math.random() * this.colors.length); 
@@ -133,8 +133,8 @@ export class ListNotebookComponent implements OnInit {
       id:this.noteListLen+1,
       name:note.name,
       description: note.description,
-       color: this.colors[this.colorRandomVal].value,
-        created: new Date()
+      color: this.colors[this.colorRandomVal].value,
+      created: new Date()
     });
    this.notebookService.updateNotebook(notebook)
       .subscribe(() => this.goBack());
@@ -149,10 +149,9 @@ export class ListNotebookComponent implements OnInit {
     this.notebookService.updateNotebook(this.notebook)
       .subscribe(() => this.goBack());
   }
-
-  toggle(notebookId:number) {
-    
-    if(this.clickIdx===notebookId)
+   
+  toggle(notebook) {
+    if(this.clickIdx===notebook.id)
     {
       this.clickIdx = -1;
       this.show = false;
@@ -160,7 +159,7 @@ export class ListNotebookComponent implements OnInit {
     else  
     {
       this.show = true;
-      this.clickIdx=notebookId;
+      this.clickIdx=notebook.id;
     }
   }
 

@@ -2,6 +2,7 @@
   <button (click)="addNotebook();" class="add-btn" title="Add Note">+</button>
 </div>
 <div class="container nb-home">
+  <div class="row">
     <div *ngFor="let notebook of notebooks; index as notebookId" class="m-10" (mouseenter)="hoverIdx = notebookId" (mouseleave)="hoverIdx = -1"  >
         <div [ngClass]="{'overlay-div':notebook.id == clickIdx}">
           <div *ngIf="show && notebook.id == clickIdx" class="settings-tab">
@@ -76,5 +77,6 @@
         </div>
       
     </div>
+  </div>
 </div>
 

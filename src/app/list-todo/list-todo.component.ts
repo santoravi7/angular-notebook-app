@@ -49,7 +49,7 @@ export class ListTodoComponent implements OnInit {
         checked:false
     })
     console.log("Activated route - "+this.route);
-    this.router.navigate(['todo/'+id,{'notebookId':this.notebook.id}], {relativeTo:this.route});
+    // this.router.navigate(['todo/'+id,{'notebookId':this.notebook.id}], {relativeTo:this.route});
     this.notebookService.updateNotebook(this.notebook).subscribe({
       next:()=>note => this.notebook = note
    })

@@ -278,15 +278,14 @@
 
 
 .settings-tab{
-  position: absolute;
+  position: fixed;
   right: 0;
   height: 100%;
   top: 0;
   background: #fff;
   box-shadow: -1px 2px 12px 0px #848484;
   width: 400px;
-  z-index: 10;
-  padding: 20px;
+  z-index: 99;
 }
 
 .settings-tab .close{
@@ -346,10 +345,10 @@
   height: 100%;
   background: #0000008c;
   display: block;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 11;
 }
 
 .nb-info-set .note-heading{
