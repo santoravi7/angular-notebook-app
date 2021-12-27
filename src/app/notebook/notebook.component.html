@@ -9,21 +9,21 @@
                 <span aria-hidden="true">&times;</span>
               </button>
               <div>
-                <h4 class="nb-header">Notebook Info</h4>
+                <h4 class="nb-header">Info</h4>
                 <div class="nb-info-wrapper">
-                    <div class="nb-info-img">
-                  <div class="notesimg-div set-bg"[style.background]="'url(' + notebook.img + ')'"></div>
-
-                </div>
-                <div class="nb-info-set">
-                  <input class="note-heading" (keyup.enter)="updateName(notebook)"[(ngModel)]='notebook.name'/>
-                   <div class="clr-div"></div>
-                  <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/notebook.png"/>
-                  <h4 class="nb-header txt-left">{{notebook.noteList.length+notebook.todoList.length}} Notes</h4> 
-                  <div class="clr-div"></div>
-                  <img src="https://image.flaticon.com/icons/svg/660/660707.svg"/>
-                  <h4 class="nb-header txt-left">{{ notebook.created | date:'dd MMM yyyy' }}</h4>
-                </div>
+                    <div class="col-md-5 nb-info-img">
+                      <div class="notesimg-div set-bg"[style.background]="'url(' + notebook.img + ')'">
+                      </div>
+                    </div>
+                    <div class="col-md-7 nb-info-set">
+                      <input class="note-heading" (keyup.enter)="updateName(notebook)"[(ngModel)]='notebook.name'/>
+                      <div class="clr-div"></div>
+                      <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/notebook.png"/>
+                      <h4 class="nb-header txt-left">{{notebook.noteList.length+notebook.todoList.length}} Notes</h4> 
+                      <div class="clr-div"></div>
+                      <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/calendar.png"/>
+                      <h4 class="nb-header txt-left">{{ notebook.created | date:'dd MMM yyyy' }}</h4>
+                    </div>
                 </div>
                 <div class="clr-div"></div>
                 <div class="images-set-tab">

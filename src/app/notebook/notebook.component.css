@@ -162,7 +162,7 @@
   box-shadow: -1px 2px 12px 0px #848484;
   width: 400px;
   z-index: 99;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 .settings-tab .close{
@@ -172,26 +172,30 @@
 }
 
 .settings-tab .set-bg{
-  width: 160px;
+  width: 125px;
+  height: 170px;
   display: inline-block;
-  margin-top: 35px;
+  box-shadow: 0 1px 5px rgb(0 0 0 / 40%);
+  /* margin-top: 35px; */
 }
 
 .nb-info-set{
   float: left;
   margin-top: 35px;
-  margin-left: 35px;
+  /* margin-left: 35px; */
   text-align: left;
 }
 
 .nb-info-img{
-  float:left;
+  /* float:left; */
+  text-align: center;
 }
 
 .images-set-tab{
   overflow: scroll;
   overflow-x: hidden;
-  height: 250px;
+  height: 55vh;
+  background: #f7f7f7;
 }
 
 .images-set-tab .set-bg{
@@ -204,9 +208,9 @@
 .nb-info-set .note-heading{
   border: none;
   font-family: lato;
-  font-size:18px;
+  font-size:15px;
   font-weight: 700;
-  text-align: center;
+  /* text-align: center; */
   color: #000;
   display: inherit;
 }
@@ -224,6 +228,7 @@
 
 .txt-left{
   text-align: left;
+  font-weight: 400;
 }
 
 .nb-info-set img{
@@ -252,7 +257,7 @@
     border-bottom-right-radius: 10px;
   } 
   .notesimg-div{
-    height: 140px;
+    height: 140px !important;
   }
   .overlay-icon {
     width: 110px;
