@@ -8,6 +8,7 @@ import { Notedata } from '../notedata';
 import { TodolistData } from '../todolist-data';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { findIndex } from 'rxjs/operators';
 
 @Component({
   selector: 'app-list-notebook',
@@ -19,7 +20,7 @@ export class ListNotebookComponent implements OnInit {
   notebooks:NotebookData[];
   notes : Notedata[] = [];
   modalRef: BsModalRef;
-  hoverIdx = -1;hoverTodoIdx=-1;show:boolean=false;clickIdx=-1;
+  hoverIdx = -1;hoverTodoIdx=-1;show:boolean=false;clickIdx=-1;todoIdx=-1;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -150,17 +151,33 @@ export class ListNotebookComponent implements OnInit {
       .subscribe(() => this.goBack());
   }
    
-  toggle(notebook) {
-    if(this.clickIdx===notebook.id)
-    {
-      this.clickIdx = -1;
-      this.show = false;
+  toggle(idx,type) {
+    console.log("click id = "+this.clickIdx);
+    if(type=="note"){
+      if(this.clickIdx===idx)
+      {
+        this.clickIdx = -1;
+        this.show = false;
+      }
+      else  
+      {
+        this.show = true;
+        this.clickIdx = idx;
+      }
     }
-    else  
-    {
-      this.show = true;
-      this.clickIdx=notebook.id;
+    if(type=="todo"){
+      if(this.todoIdx===idx)
+      {
+        this.todoIdx = -1;
+        this.show = false;
+      }
+      else  
+      {
+        this.show = true;
+        this.todoIdx = idx;
+      }
     }
+    console.log("toggle = "+idx+" toggle type - "+type);
   }
 
 
