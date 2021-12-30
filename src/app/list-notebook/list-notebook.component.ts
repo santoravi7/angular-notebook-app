@@ -114,16 +114,25 @@ export class ListNotebookComponent implements OnInit {
       .subscribe(() => this.goBack());
   }
   delNode;
-  deleteNote(noteId:number): void{
-    this.notebook.noteList[noteId-1]=" ";    
+
+  deleteNote(noteId:number,notebook): void{
+    console.log("note Id - "+noteId);
+    const index = notebook.findIndex(e =>e.id===noteId);
+    notebook.splice(index,1);    
     this.notebookService.updateNotebook(this.notebook)
-      .subscribe(() => this.goBack());
+      .subscribe({complete: () => {
+        this.router.navigate([], {relativeTo:this.route});
+      }});
   }
   currentTodo;
-  deleteTodo(todoId:number): void{
-    this.currentTodo = this.notebook.todoList[todoId-1] = " ";
+  deleteTodo(todoId:number,notebook): void{
+    const index = notebook.findIndex(e =>e.id===todoId);
+    console.log("note id to be deleted - "+todoId);
+    this.currentTodo = this.notebook.todoList.splice(index,1);
     this.notebookService.updateNotebook(this.notebook)
-      .subscribe(() => this.goBack());
+      .subscribe({complete: () => {
+        this.router.navigate([], {relativeTo:this.route});
+      }});
   }
   noteListLen;
   copyToNB(notebook:NotebookData, note:Notedata): void{

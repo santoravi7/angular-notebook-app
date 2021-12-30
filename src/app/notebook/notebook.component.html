@@ -1,11 +1,16 @@
 <div class="nb-scroll">
-<div>
+<!-- <div>
   <button (click)="addNotebook();" class="add-btn" title="Add Note">+</button>
+</div> -->
+<div class="lnbnav">
+  <div class="container list-navbar">
+    <button (click)="addNotebook();" class="add-nb" title="Add Note">+ Notebook</button>
+  </div>
 </div>
 <div class="container">
 <div class="nb-home row">
-  <div class="col-md-12">
-    <div *ngFor="let notebook of notebooks; index as notebookId" class="m-10" (mouseenter)="hoverIdx = notebookId" (mouseleave)="hoverIdx = -1"  >
+  <div class="col-md-12 col-xs-12">
+    <div *ngFor="let notebook of notebooks; index as notebookId"  (mouseenter)="hoverIdx = notebookId" (mouseleave)="hoverIdx = -1"  >
         <div [ngClass]="{'overlay-div':notebook.id == clickIdx}">
           <div *ngIf="show && notebook.id == clickIdx" class="settings-tab">
               <button type="button" class="close pull-right" aria-label="Close" (click)="toggle(notebook.id)">

@@ -111,7 +111,7 @@
                 </button>
               </div>
               <div class="del-btn">
-                <button type="button" class="btn"(click)="deleteNote(note.id); modalRef.hide()" >
+                <button type="button" class="btn"(click)="deleteNote(note.id,notebook.noteList); modalRef.hide()" >
                   Delete
                 </button>
               </div>
@@ -200,7 +200,7 @@
                 </button>
               </div>
               <div class="del-btn">
-                <button type="button" class="btn"(click)="deleteTodo(todoList.id); modalRef.hide()">
+                <button type="button" class="btn"(click)="deleteTodo(todoList.id, notebook.todoList); modalRef.hide()">
                   Delete
                 </button>
               </div>
