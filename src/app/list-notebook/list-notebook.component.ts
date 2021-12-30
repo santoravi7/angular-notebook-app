@@ -20,7 +20,9 @@ export class ListNotebookComponent implements OnInit {
   notebooks:NotebookData[];
   notes : Notedata[] = [];
   modalRef: BsModalRef;
-  hoverIdx = -1;hoverTodoIdx=-1;show:boolean=false;clickIdx=-1;todoIdx=-1;
+  proverbRandomVal
+  hoverIdx = -1;hoverTodoIdx=-1;
+  show:boolean=false;clickIdx=-1;todoIdx=-1;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -32,6 +34,7 @@ export class ListNotebookComponent implements OnInit {
   ngOnInit(): void {
     this.getNoteBook();
     this.getAllNoteBooks();
+    this.proverbRandomVal = this.proverb[Math.floor(Math.random() * this.proverb.length)];
   }
 
   openModal(template: TemplateRef<any>) {
@@ -192,7 +195,7 @@ export class ListNotebookComponent implements OnInit {
 
    copyTodoToNB(notebook:NotebookData,todo:TodolistData): void{
     console.log("copyToNB = "+todo);
-     this.colorRandomVal = Math.floor(Math.random() * this.colors.length);
+    this.colorRandomVal = Math.floor(Math.random() * this.colors.length);
     this.noteListLen = notebook.todoList.length;
     notebook.todoList.push({
       id:this.noteListLen+1,
@@ -221,6 +224,17 @@ export class ListNotebookComponent implements OnInit {
         {value : '#506271'},
         {value : '#18CFA0'}
       ];
+
+  proverb = [
+    {
+      value : 'It is never too late to be what you might have been.',
+      author : 'Plato'
+    },
+    {value : 'From small beginnings come great things',
+    author : 'Unknown'},
+    {value : 'Somewhere, something incredible is waiting to be known.',
+    author : 'Carl Sagan'},
+  ]
   
 }
 

@@ -22,8 +22,7 @@
   <div class="container">
     <div *ngIf="!notebook?.noteList?.length > 0 && !notebook?.todoList?.length > 0">
       <div class="quote-text">
-        <h3>The beginning is the most important part of the work.</h3>
-        <h4>- Plato</h4>
+        <h3>{{proverbRandomVal.value}} - {{proverbRandomVal.author}}</h3>
       </div>
     </div>
     <div *ngIf="notebook?.noteList">
