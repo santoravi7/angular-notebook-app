@@ -1,20 +1,10 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { notebookList } from '../notebookList';
 import { NotebookData } from '../notebook-data';
 import { NotebookService } from '../notebook.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 import { Router, ActivatedRoute } from '@angular/router';
-
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-  // ...
-} from '@angular/animations';
 
 @Component({
   selector: 'app-notebook',
@@ -23,10 +13,10 @@ import {
 })
 export class NotebookComponent implements OnInit {
   notebooks : NotebookData[];
-  hoverIdx = -1;clickIdx=-1;
+  hoverIdx = -1; clickIdx=-1;
   colorRandomVal;
-  colorVal;noteLen;img;
-  public show:boolean = false;
+  colorVal; noteLen; img;
+  public show: boolean = false;
   modalRef: BsModalRef;
 
   constructor(private notebookService: NotebookService,
@@ -34,7 +24,10 @@ export class NotebookComponent implements OnInit {
   private route:ActivatedRoute) { }
 
   openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+    this.modalRef = this.modalService.show(template, {
+      animated: true,
+      backdrop: 'static'
+    });
   }
 
   toggle(notebookId:number) {

@@ -1,7 +1,5 @@
 import { Component, TemplateRef } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { BsModalService } from 'ngx-bootstrap/modal';
-import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -11,16 +9,5 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 export class AppComponent  {
   name = 'Angular';
   modalRef: BsModalRef;
-   constructor(private modalService: BsModalService) {}
-  
-}
-
-
-@Component({
-  selector: 'modal-content',
-  template: ``
-})
-export class ModalContentComponent {
-  title: string;
-  constructor(private modalService: BsModalService) {}
+  constructor(private modalService: BsModalService) 
 }

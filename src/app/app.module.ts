@@ -13,8 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ModalContentComponent } from './app.component';
-import { ModalModule } from 'ngx-bootstrap/modal';
+
 import { LocationStrategy, HashLocationStrategy, PathLocationStrategy } from '@angular/common';
 
 @NgModule({
@@ -22,7 +21,6 @@ import { LocationStrategy, HashLocationStrategy, PathLocationStrategy } from '@a
     BrowserModule, 
     FormsModule,
     BrowserAnimationsModule,
-    ModalModule.forRoot(),     
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
@@ -34,14 +32,15 @@ import { LocationStrategy, HashLocationStrategy, PathLocationStrategy } from '@a
     AppComponent, 
     NavbarComponent, 
     MessageComponent, 
-    ModalContentComponent,
     routingComponents
   ],
-   entryComponents: [
-    ModalContentComponent,
-  ],
-  bootstrap:    [ AppComponent ],
-  providers: [InMemoryDataService,NotebookService, MessageService,
-  { provide : LocationStrategy, useClass:PathLocationStrategy }]
+   entryComponents: [],
+  bootstrap: [ AppComponent ],
+  providers: [
+    InMemoryDataService,
+    NotebookService, 
+    MessageService,
+    { provide : LocationStrategy, useClass:PathLocationStrategy }
+  ]
 })
 export class AppModule { }
