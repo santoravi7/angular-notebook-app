@@ -88,7 +88,7 @@
             </button>
             <div class="clr-div"></div>
             <button class="nb-info" (click)="toggle(note.id,'note')" title="Info">
-              <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/info%20(1).png" />
+              <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/info-new.png" />
             </button>
           </span>
           <a [title]="note.name + ' details'" (click)="notesView(note)">
@@ -100,22 +100,23 @@
           </a>
         </div>
 
-        <ng-template #template>
+        <ng-template #template let-modal>
           <div class="modal-body modal-sm">
             <h6>Are you sure, you want to delete {{ note.name }}?</h6>
             <div class="buttons-section">
               <div class="cnl-btn">
-                <button type="button" class="btn" (click)="modalRef.hide()">
+                <button type="button" class="btn" (click)="modal.close('Save click')">
                   Cancel
                 </button>
               </div>
               <div class="del-btn">
-                <button type="button" class="btn"(click)="deleteNote(note.id,notebook.noteList); modalRef.hide()" >
+                <button type="button" class="btn"(click)="deleteNote(note.id,notebook.noteList);" >
                   Delete
                 </button>
               </div>
             </div>
           </div>
+          
         </ng-template>
       </div>
     </div>
@@ -175,7 +176,7 @@
               </button>
               <div class="clr-div"></div>
               <button class="nb-info" (click)="toggle(todoList.id,'todo')" title="Info">
-                <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/info%20(1).png"
+                <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/info-new.png"
                 />
               </button>
             </span>

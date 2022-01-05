@@ -1,8 +1,8 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { NotebookData } from '../notebook-data';
 import { NotebookService } from '../notebook.service';
-import { BsModalService } from 'ngx-bootstrap/modal';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+// import { BsModalService } from 'ngx-bootstrap/modal';
+// import { BsModalRef } from 'ngx-bootstrap/modal';
 
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -17,17 +17,17 @@ export class NotebookComponent implements OnInit {
   colorRandomVal;
   colorVal; noteLen; img;
   public show: boolean = false;
-  modalRef: BsModalRef;
+  // modalRef: BsModalRef;
 
   constructor(private notebookService: NotebookService,
-  private modalService: BsModalService, private router:Router,
+   private router:Router,
   private route:ActivatedRoute) { }
 
   openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template, {
-      animated: true,
-      backdrop: 'static'
-    });
+    // this.modalRef = this.modalService.show(template, {
+    //   animated: true,
+    //   backdrop: 'static'
+    // });
   }
 
   toggle(notebookId:number) {
@@ -65,7 +65,7 @@ export class NotebookComponent implements OnInit {
     if(!created)
     created = new Date();
     if (!name) { return; }
-    this.notebookService.addNotebook({ name,noteList,todoList,img,created } as NotebookData)
+    this.notebookService.addNotebook({ name,noteList,todoList,img,created } as unknown as NotebookData)
       // .subscribe(note => {
       //   this.notebooks.push(note);
       // });

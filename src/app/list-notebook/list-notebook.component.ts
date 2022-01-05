@@ -6,9 +6,8 @@ import { NotebookService } from '../notebook.service';
 import { Pipe } from '@angular/core';
 import { Notedata } from '../notedata';
 import { TodolistData } from '../todolist-data';
-import { BsModalService } from 'ngx-bootstrap/modal';
-import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { findIndex } from 'rxjs/operators';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-list-notebook',
@@ -16,37 +15,40 @@ import { findIndex } from 'rxjs/operators';
   styleUrls: ['./list-notebook.component.css']
 })
 export class ListNotebookComponent implements OnInit {
-  notebook:NotebookData;
-  notebooks:NotebookData[];
-  notes : Notedata[] = [];
-  modalRef: BsModalRef;
-  proverbRandomVal
-  hoverIdx = -1;hoverTodoIdx=-1;
-  show:boolean=false;clickIdx=-1;todoIdx=-1;
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private notebookService: NotebookService,
-    private location: Location,
-    private modalService: BsModalService
-    ) { }
+    notebook:NotebookData;
+    notebooks:NotebookData[];
+    notes : Notedata[] = [];
+    proverbRandomVal
+    hoverIdx = -1;hoverTodoIdx=-1;
+    closeResult = '';
+    show:boolean=false;clickIdx=-1;todoIdx=-1;
+    constructor(
+      private router: Router,
+      private route: ActivatedRoute,
+      private notebookService: NotebookService,
+      private location: Location,
+      private modalService: NgbModal
+      ) { }
 
-  ngOnInit(): void {
-    this.getNoteBook();
-    this.getAllNoteBooks();
-    this.proverbRandomVal = this.proverb[Math.floor(Math.random() * this.proverb.length)];
-  }
+    ngOnInit(): void {
+      this.getNoteBook();
+      this.getAllNoteBooks();
+      this.proverbRandomVal = this.proverb[Math.floor(Math.random() * this.proverb.length)];
+    }
 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
-  }
+    openModal(template: TemplateRef<any>) {
+      // this.modalRef = this.modalService.show(template);
+      console.log("Open modal clicked"+template);
+      this.modalService.open(template, {ariaLabelledBy: 'modal-basic-title'})
+    }
+    
 
-  notesView(notes):void{
-    this.router.navigate(['note/'+notes.id,{'notebookId':this.notebook.id}], {relativeTo:this.route});
-  }
-  todoView(todo):void{
-    this.router.navigate(['todo/'+todo.id,{'notebookId':this.notebook.id}], {relativeTo:this.route});
-  }
+    notesView(notes):void{
+      this.router.navigate(['note/'+notes.id,{'notebookId':this.notebook.id}], {relativeTo:this.route});
+    }
+    todoView(todo):void{
+      this.router.navigate(['todo/'+todo.id,{'notebookId':this.notebook.id}], {relativeTo:this.route});
+    }
 
   getAllNoteBooks(): void{
     this.notebookService.getAllNotebooks()
