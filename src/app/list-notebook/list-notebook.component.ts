@@ -7,7 +7,7 @@ import { Pipe } from '@angular/core';
 import { Notedata } from '../notedata';
 import { TodolistData } from '../todolist-data';
 import { findIndex } from 'rxjs/operators';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-list-notebook',
@@ -39,9 +39,8 @@ export class ListNotebookComponent implements OnInit {
     openModal(template: TemplateRef<any>) {
       // this.modalRef = this.modalService.show(template);
       console.log("Open modal clicked"+template);
-      this.modalService.open(template, {ariaLabelledBy: 'modal-basic-title'})
-    }
-    
+      this.modalService.open(template)
+    }    
 
     notesView(notes):void{
       this.router.navigate(['note/'+notes.id,{'notebookId':this.notebook.id}], {relativeTo:this.route});

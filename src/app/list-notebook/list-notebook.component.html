@@ -1,32 +1,32 @@
 <div class="list-nb-comp">
-  <div class="lnbnav">
-    <div class="col-md-6 list-navbar">
+  <div class="container">
+  <div class="row lnbnav">
+    <div class="col list-navbar">
       <button (click)="goBack()" class="back-btn" title="Go Back">
         <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/arrow.png" />
       </button>
     </div>
-    <div class="col-md-6 actions-div">
-      <div class="notebook-edit-div">
-        <!-- <input class="note-heading" (keyup.enter)="updateName()"[(ngModel)]='notebook?.name'/> -->
-      </div>
-      <div class="pull-right-div">
+    <div class="col actions-div">
+      <div class="col">
         <button (click)="addTodo()" class="todo-btn" title="Add a Todo List">
           <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/check.png" />
         </button>
+      </div>
+      <div class="col">
         <button (click)="addNote()" title="Add Note" class="todo-btn" title="Write Notes">
           <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/edit.png" />
         </button>
       </div>
     </div>
   </div>
-  <div class="container">
+  <div>
     <div *ngIf="!notebook?.noteList?.length > 0 && !notebook?.todoList?.length > 0">
       <div class="quote-text">
         <h3>{{proverbRandomVal.value}} - {{proverbRandomVal.author}}</h3>
       </div>
     </div>
-    <div *ngIf="notebook?.noteList">
-      <div class="desc m-10 " *ngFor="let note of notebook?.noteList">
+    <div *ngIf="notebook?.noteList" class="row">
+      <div class="desc m-10 col-md-3" *ngFor="let note of notebook?.noteList">
         <div [ngClass]="{ 'overlay-div': note.id == clickIdx }">
           <div *ngIf="show && note.id == clickIdx" class="settings-tab">
             <button type="button" class="close pull-right" aria-label="Close"(click)="toggle(note.id,'note')">
@@ -49,39 +49,24 @@
                 </h4>
               </div>
               <div class="clr-div"></div>
-              <div class="nb-info-wrapper">
+              <div class="nb-info-wrapper container">
                 <h4 class="nb-header">Select Notebook</h4>
                 <h4 class="cpy-txt">
-                  Copy this note card from '{{ notebook?.name }}' to another
-                  notebook
+                  Copy this note card from '{{ notebook?.name }}' to another notebook
                 </h4>
-                <div *ngFor="let nb of notebooks">
-                  <div
-                    *ngIf="nb.id !== notebook?.id"
-                    class="col-md-4 col-xs-5 col-sm-4 col-lg-5 notebook-div"
-                    (click)="copyToNB(nb, note)"
-                  >
-                    <div
-                      class="notesimg-div"
-                      [style.background]="'url(' + nb.img + ')'"
-                    ></div>
-                    <h4 class="nb-header">{{ nb?.name }}</h4>
+                <div class="row">
+                  <div class="col-md-6" *ngFor="let nb of notebooks">
+                    <div  *ngIf="nb.id !== notebook?.id" class=" notebook-div col-md-12" (click)="copyToNB(nb, note)">
+                      <div class="notesimg-div" [style.background]="'url(' + nb.img + ')'"></div>
+                      <h4 class="nb-header">{{ nb?.name }}</h4>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-3 col-xs-6 col-sm-6 col-lg-3 p-15"(mouseenter)="hoverIdx = note?.id" (mouseleave)="hoverIdx = -1">
-          <a *ngIf="note.name" [title]="note.name + ' details'"
-            (click)="notesView(note)">
-            <div class="notes-div" [ngStyle]="{ 'background-color': note.color }">
-              <div>
-                <h4>{{ note.name }}</h4>
-                <div class="intro">{{ note?.description }}</div>
-              </div>
-            </div>
-          </a>
+        <div class="col"(mouseenter)="hoverIdx = note?.id" (mouseleave)="hoverIdx = -1">
           <span class="overview-img" [ngClass]="{ 'overlay-icon': true, hide: hoverIdx !== note.id }">
             <button (click)="openModal(template)" title="Delete Note">
               <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/delete.png" />
@@ -91,26 +76,34 @@
               <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/info-new.png" />
             </button>
           </span>
-          <a [title]="note.name + ' details'" (click)="notesView(note)">
-            <div id="container">
-              <h4 class="nb-header" style="margin-left: -45px;margin-left: -45px;" >
-                {{ note.name }}
-              </h4>
+          <a *ngIf="note.name" [title]="note.name + ' details'"
+            (click)="notesView(note)">
+            <div class="notes-div" [ngStyle]="{ 'background-color': note.color }">
+              <div>
+                <h4>{{ note.name }}</h4>
+                <div class="intro">{{ note?.description }}</div>
+              </div>
             </div>
           </a>
+          
         </div>
+        <a [title]="note.name + ' details'" (click)="notesView(note)">
+          <div id="">
+            <h4 class="nb-header">
+            {{ note.name }}
+            </h4>
+          </div>
+        </a>
 
         <ng-template #template let-modal>
-          <div class="modal-body modal-sm">
+          <div class="modal-body modal-sm" id="modal-basic-title">
             <h6>Are you sure, you want to delete {{ note.name }}?</h6>
             <div class="buttons-section">
               <div class="cnl-btn">
-                <button type="button" class="btn" (click)="modal.close('Save click')">
-                  Cancel
-                </button>
+                <button type="button" class="btn" (click)="modal.close()">Cancel</button>
               </div>
               <div class="del-btn">
-                <button type="button" class="btn"(click)="deleteNote(note.id,notebook.noteList);" >
+                <button type="button" class="btn"(click)="deleteNote(note.id,notebook.noteList);modal.close()" >
                   Delete
                 </button>
               </div>
@@ -121,8 +114,8 @@
       </div>
     </div>
 
-    <div *ngIf="notebook?.todoList">
-      <div class="desc" *ngFor="let todoList of notebook?.todoList; index as tiId">
+    <div *ngIf="notebook?.todoList" class="row">
+      <div class="desc col-md-3" *ngFor="let todoList of notebook?.todoList; index as tiId">
         <div [ngClass]="{ 'overlay-div': todoList.id == todoIdx }">
           <div *ngIf="show && todoList.id == todoIdx" class="settings-tab">
             <button type="button" class="close pull-right" aria-label="Close" (click)="toggle(todoList.id,'todo')">
@@ -146,7 +139,7 @@
                 <h4 class="nb-header">Select Notebook</h4>
                 <h4 class="cpy-txt">Copy this note card from '{{ notebook?.name }}' to another notebook</h4>
                 <div *ngFor="let nb of notebooks">
-                  <div *ngIf="nb.id !== notebook?.id" class="col-md-4 col-xs-5 col-sm-4 col-lg-5 notebook-div" (click)="copyTodoToNB(nb, todoList)" >
+                  <div *ngIf="nb.id !== notebook?.id" class="col notebook-div" (click)="copyTodoToNB(nb, todoList)" >
                     <div class="notesimg-div" [style.background]="'url(' + nb.img + ')'" ></div>
                     <h4 class="nb-header">{{ nb.name }}</h4>
                   </div>
@@ -156,7 +149,7 @@
           </div>
         </div>
 
-        <div class="col-md-4 col-xs-12 col-sm-6 col-lg-3 p-15">
+        <div class="col">
           <a *ngIf="todoList.name" [title]="todoList.name + ' details'" (click)="todoView(todoList)">
             <div class="notes-div todo-wrapper" [ngStyle]="{ 'background-color': todoList.color }" (mouseenter)="hoverTodoIdx = todoList.id" (mouseleave)="hoverTodoIdx = -1">
               <h4>{{ todoList.name }}</h4>
@@ -180,27 +173,28 @@
                 />
               </button>
             </span>
-            <a [title]="todoList.name + ' details'" (click)="todoView(todoList)">
-              <div id="container">
-                <h4 class="nb-header" style="margin-left: -45px;margin-left: -45px;">
-                  {{ todoList.name }}
-                </h4>
-              </div>
-            </a>
           </div>
         </div>
 
-        <ng-template #template1>
-          <div class="modal-body modal-sm">
+        <a [title]="todoList.name + ' details'" (click)="todoView(todoList)">
+          <div id="container">
+            <h4 class="nb-header">
+              {{ todoList.name }}
+            </h4>
+          </div>
+        </a>
+
+        <ng-template #template1 let-modal>
+         
+          <div class="modal-body modal-sm" id="modal-basic-title">
             <h6>Are you sure, you want to delete {{ todoList.name }}?</h6>
             <div class="buttons-section">
               <div class="cnl-btn">
-                <button type="button" class="btn" (click)="modalRef.hide()">
-                  Cancel
+                <button type="button" class="btn" (click)="modal.close()">Cancel
                 </button>
               </div>
               <div class="del-btn">
-                <button type="button" class="btn"(click)="deleteTodo(todoList.id, notebook.todoList); modalRef.hide()">
+                <button type="button" class="btn"(click)="deleteNote(todoList.id,notebook.todoList);modal.close()" >
                   Delete
                 </button>
               </div>
@@ -210,4 +204,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

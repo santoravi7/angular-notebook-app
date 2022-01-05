@@ -77,7 +77,14 @@ textarea{
   }
 } 
 
-.lnbnav .list-navbar{
+.list-nb-comp{
+  /* margin-top: 5%; */
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+.lnbnav{
   margin-top: 5%;
 }
 

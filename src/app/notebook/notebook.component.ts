@@ -5,6 +5,7 @@ import { NotebookService } from '../notebook.service';
 // import { BsModalRef } from 'ngx-bootstrap/modal';
 
 import { Router, ActivatedRoute } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-notebook',
@@ -21,13 +22,15 @@ export class NotebookComponent implements OnInit {
 
   constructor(private notebookService: NotebookService,
    private router:Router,
-  private route:ActivatedRoute) { }
+  private route:ActivatedRoute,
+  private modalService:NgbModal) {}
 
   openModal(template: TemplateRef<any>) {
     // this.modalRef = this.modalService.show(template, {
     //   animated: true,
     //   backdrop: 'static'
     // });
+    this.modalService.open(template)
   }
 
   toggle(notebookId:number) {

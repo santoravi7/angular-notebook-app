@@ -173,5 +173,12 @@ textarea{
 }
 
 .list-nb-comp{
-  margin-top:5%;
+  /* margin-top: 5%; */
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+.list-navbar{
+  margin-top: 5%;
 }

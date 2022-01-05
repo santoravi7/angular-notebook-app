@@ -7,13 +7,12 @@
 
 .lnbnav{
   margin-top: 5%;
-  padding: 0 20px;
 }
-
+/* 
 .notes-div{
   width: 220px !important;
   min-height: 220px !important; 
-}
+} */
 
 .p-15{
   padding: 15px;
@@ -34,24 +33,25 @@
   .notebook-edit-div input{
     width: 60px;
   }
-  .notes-div{
+  /* .notes-div{
     width: 150px !important;
     min-height: 150px !important; 
-  }
+  } */
   .overlay-icon {    
-    width: 150px !important;
-    height: 150px !important;
+    width: 87%;
+    height: 200px !important;
     padding-top: 35px !important;
-    top: 20px !important;
-    left: 0px !important;
+    top: 0px !important;
+    left: 15px !important;
   }
   .intro{
-    font-size: 10px !important;
-    width: 120px !important;
-    height: 85px !important;
-    -webkit-line-clamp: 3 !important;
+    font-size: 1rem;
+    /* width: 120px !important; */
+    /* height: 85px !important; */
+    -webkit-line-clamp: 5 !important;
     -webkit-box-orient: vertical;
     line-height: 1.8;
+    color: #fff;
   }
   .overview-img button{
     width: 25px !important;
@@ -72,7 +72,6 @@
   border: none;
   background: none;
   margin-top: 30px;
-  margin-left: 10px;
 }
 
 .todo-wrapper{
@@ -178,6 +177,7 @@
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   line-height: 1.8;
+  color: #fff;
 }
 
 .m-10{
@@ -201,10 +201,10 @@
 
 .overlay-icon {
   position: absolute;
-  top: 35px;
+  top: 0px;
   left: 15px;
-  width: 220px;
-  height: 220px;
+  width: 87%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.55);
   text-align: center;
   overflow: hidden;
@@ -331,6 +331,7 @@
   color: #000;
   text-align: center;
   font-weight: 700;
+  margin-top: 10px;
 }
 
 .nb-info-set{

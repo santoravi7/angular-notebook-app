@@ -1,13 +1,13 @@
-<div class="container">
-  <div class="lnbnav">
-  <div class="list-navbar">
-    <button (click)="goBack()" class="back-btn" title="Go Back">
-      <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/arrow.png" />
-    </button>
+<div class="list-nb-comp">
+  <div class="container">
+  <div class="row lnbnav">
+    <div class="col list-navbar">
+      <button (click)="goBack()" class="back-btn" title="Go Back">
+        <img src="https://stackblitz.com/files/angular-notebook-app/github/santoravi7/angular-notebook-app/master/src/app/images/arrow.png" />
+      </button>
+    </div>
   </div>
-</div>
-  <div>
-    <div class="col-md-12 col-xs-12 m-10">
+    <div class="col m-10">
       <div
         *ngIf="notebook"
         class="notes-textarea"
