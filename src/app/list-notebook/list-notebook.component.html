@@ -96,14 +96,14 @@
         </a>
 
         <ng-template #template let-modal>
-          <div class="modal-body modal-sm" id="modal-basic-title">
+          <div class="modal-body" id="modal-basic-title">
             <h6>Are you sure, you want to delete {{ note.name }}?</h6>
             <div class="buttons-section">
               <div class="cnl-btn">
                 <button type="button" class="btn" (click)="modal.close()">Cancel</button>
               </div>
               <div class="del-btn">
-                <button type="button" class="btn"(click)="deleteNote(note.id,notebook.noteList);modal.close()" >
+                <button type="button" class="btn btn-danger"(click)="deleteNote(note.id,notebook.noteList);modal.close()" >
                   Delete
                 </button>
               </div>

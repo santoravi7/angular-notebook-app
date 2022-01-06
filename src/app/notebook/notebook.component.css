@@ -136,34 +136,10 @@
     margin: 30px auto;
 }
 
-.buttons-section{
-  padding-right: 2px;
-  margin-right: 2px;
-  border-top: solid 1px #F0F0F0;
-}
-
 .buttons-section .btn{
-    background: none;
     width: 100%;
     padding: 10px 0px;
     border-radius: 0px;
-}
-
-.buttons-section .del-btn{
-  border-left: solid 1px #F0F0F0;
-}
-
-.buttons-section .btn:hover {
-  background: rgb(231, 231, 231) !important;
-  border-radius: 0px;
-}
-
-.buttons-section .del-btn:hover{
-  border-bottom-right-radius: 3px;
-}
-
-.buttons-section .cnl-btn:hover{
-  border-bottom-left-radius: 3px;
 }
 
 .cnl-btn, .del-btn{

@@ -1,5 +1,4 @@
 import { Component, TemplateRef } from '@angular/core';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +7,4 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 })
 export class AppComponent  {
   name = 'Angular';
-  modalRef: BsModalRef;
-  constructor(private modalService: BsModalService) 
 }

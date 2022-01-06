@@ -169,12 +169,10 @@
   text-align: left;
   font-weight: 400;
   font-family: lato;
-  font-size: 12.5px;
-  width: 160px;
-  height: 115px;
+  font-size: 12px;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   line-height: 1.8;
   color: #fff;
@@ -255,7 +253,6 @@
 }
 
 .buttons-section .btn{
-    background: none;
     width: 100%;
     padding: 10px 0px;
     border-radius: 0px;

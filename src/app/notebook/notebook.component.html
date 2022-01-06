@@ -69,14 +69,14 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div> -->
-            <div class="modal-body modal-sm">
+            <div class="modal-body">
                 <h6>Are you sure, you want to delete {{notebook.name}}?</h6>
                 <div class="buttons-section">
                   <div class="cnl-btn">
                       <button type="button" class="btn" (click)="modal.close()" >Cancel</button>
                   </div>
                   <div class="del-btn">
-                      <button type="button" class="btn" (click)="deleteNotebook(notebook);modal.close()" >Delete</button>
+                      <button type="button" class="btn btn-danger" (click)="deleteNotebook(notebook);modal.close()" >Delete</button>
                   </div>
                 </div>
             </div>
